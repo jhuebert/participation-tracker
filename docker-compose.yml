@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  participation-tracker:
+    image: jhuebert/participation-tracker:latest
+    container_name: participation-tracker
+    ports:
+      - "80:80"
+    restart: unless-stopped
