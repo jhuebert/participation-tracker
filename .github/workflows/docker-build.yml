@@ -48,5 +48,5 @@ jobs:
           push: true
           tags: |
             jhuebert/participation-tracker:${{ steps.version.outputs.version }}
-            ${{ steps.tags.outputs.majorMinor }}
-            ${{ steps.tags.outputs.major }}
+            jhuebert/participation-tracker:${{ steps.tags.outputs.majorMinor }}
+            jhuebert/participation-tracker:${{ steps.tags.outputs.major }}
