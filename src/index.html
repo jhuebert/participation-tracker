@@ -15,33 +15,39 @@
         body.student-view {
             padding: 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: stretch;
         }
         .student-display {
             width: 100%;
-            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: center;
             align-items: center;
             color: white;
-            text-align: center;
+            padding: 20px 40px;
+            gap: 20px;
+            white-space: nowrap;
+            overflow: hidden;
         }
         .student-name {
-            font-size: 12vw;
+            font-size: 4vw;
             font-weight: bold;
-            padding: 40px;
             animation: fadeIn 0.5s;
-            text-shadow: 0 6px 12px rgba(0,0,0,0.4);
+            text-shadow: 0 3px 6px rgba(0,0,0,0.4);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .volunteer-indicator {
-            font-size: 8vw;
-            margin-bottom: 30px;
+            font-size: 4vw;
             animation: fadeIn 0.5s;
+            flex-shrink: 0;
         }
         .waiting-message {
-            font-size: 5vw;
+            font-size: 4vw;
             opacity: 0.8;
         }
         @keyframes fadeIn {
@@ -203,7 +209,7 @@
 </head>
 <body>
     <!-- Student View (for projector) -->
-    <div id="studentView" style="display: none;">
+    <div id="studentView" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 50;">
         <div class="student-display">
             <div id="studentVolunteerIcon"></div>
             <div class="student-name" id="studentNameDisplay">Waiting for teacher to select a student...</div>
@@ -375,12 +381,13 @@
                 this.mode = mode;
 
                 if (mode === 'student') {
-                    // Show student view, hide teacher controls
+                    // Show student view as bottom banner
                     document.body.classList.add('student-view');
                     const studentView = document.getElementById('studentView');
                     const teacherView = document.getElementById('teacherView');
                     if (studentView) studentView.style.display = 'block';
                     if (teacherView) teacherView.style.display = 'none';
+                    document.body.style.background = '#1a1a2e';
                     document.title = 'Student View - Participation Tracker';
                 } else {
                     // Show teacher view
