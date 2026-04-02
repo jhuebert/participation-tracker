@@ -193,6 +193,238 @@
             border-bottom: 1px solid #eee;
         }
         .leaderboard-table tr:nth-child(even) { background: #f9f9f9; }
+        .scoring-settings {
+            background: #f9fafb;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+        .scoring-settings h4 {
+            font-size: 15px;
+            color: #374151;
+            margin-bottom: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .scoring-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .scoring-row {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .scoring-row label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #374151;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .scoring-row .radio-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .scoring-row .radio-group label {
+            font-size: 12px;
+            font-weight: 400;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            cursor: pointer;
+        }
+        .scoring-row .radio-group input[type="radio"] {
+            width: auto;
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+        }
+        .scoring-row .point-input-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .scoring-row .point-input-wrap input[type="number"] {
+            width: 70px;
+            padding: 6px 10px;
+            font-size: 14px;
+            margin: 0;
+            border: 2px solid #d1d5db;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .scoring-row .point-input-wrap span {
+            font-size: 13px;
+            color: #6b7280;
+        }
+        .scoring-effect-badge {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 99px;
+            letter-spacing: 0.03em;
+        }
+        .badge-positive { background: #d1fae5; color: #065f46; }
+        .badge-negative { background: #fee2e2; color: #991b1b; }
+        .formula-preview {
+            margin-top: 14px;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 12px;
+            color: #1e40af;
+            font-family: monospace;
+            line-height: 1.6;
+        }
+        /* ── Weighted Selection Settings ── */
+        .weighted-settings {
+            background: #f9fafb;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+        .weighted-settings.disabled-panel {
+            opacity: 0.45;
+            pointer-events: none;
+        }
+        .weighted-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .weighted-header h4 {
+            font-size: 15px;
+            color: #374151;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin: 0;
+        }
+        .weighted-toggle-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+            padding: 10px 14px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+        }
+        .weighted-toggle-wrap input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+        .weighted-toggle-wrap label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #374151;
+            cursor: pointer;
+            user-select: none;
+        }
+        .weighted-toggle-wrap .toggle-sub {
+            font-size: 12px;
+            color: #9ca3af;
+            margin-left: 4px;
+            font-weight: 400;
+        }
+        .weight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .weight-row {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .weight-row-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #374151;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .weight-direction-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .weight-direction-group label {
+            font-size: 12px;
+            font-weight: 400;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            cursor: pointer;
+        }
+        .weight-direction-group input[type="radio"] {
+            width: auto;
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+        .weight-amount-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .weight-amount-wrap input[type="number"] {
+            width: 70px;
+            padding: 6px 10px;
+            font-size: 14px;
+            margin: 0;
+            border: 2px solid #d1d5db;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .weight-amount-wrap span {
+            font-size: 12px;
+            color: #6b7280;
+        }
+        .weight-preview {
+            margin-top: 14px;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 12px;
+            color: #166534;
+            font-family: monospace;
+            line-height: 1.8;
+        }
+        .weight-preview .wp-title {
+            font-weight: 700;
+            margin-bottom: 4px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #15803d;
+        }
         .toast {
             display: none;
             position: fixed;
@@ -204,6 +436,209 @@
             color: white;
             font-weight: bold;
             z-index: 1001;
+        }
+        /* ── Split-screen layout ── */
+        body.split-mode {
+            padding: 0;
+            overflow: hidden;
+            height: 100vh;
+        }
+        body.split-mode #teacherView {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .split-layout {
+            display: none;
+            flex: 1;
+            overflow: hidden;
+            gap: 0;
+        }
+        body.split-mode .split-layout {
+            display: flex;
+        }
+        body.split-mode .container {
+            display: none;
+        }
+        body.split-mode .split-tracker-panel .container {
+            display: block;
+        }
+        /* Slides panel */
+        .split-slides-panel {
+            flex: 0 0 60%;
+            background: #111;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border-right: 3px solid #667eea;
+        }
+        .slides-toolbar {
+            background: #1e293b;
+            padding: 8px 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+            flex-wrap: wrap;
+        }
+        .slides-toolbar button {
+            padding: 6px 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: opacity 0.15s;
+        }
+        .slides-toolbar button:hover { opacity: 0.85; }
+        .slides-toolbar button:disabled { opacity: 0.35; cursor: not-allowed; }
+        .slide-counter {
+            color: #94a3b8;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+        .slide-filename {
+            color: #64748b;
+            font-size: 12px;
+            margin-left: auto;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 180px;
+        }
+        .slides-viewport {
+            flex: 1;
+            overflow: auto;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 16px;
+            background: #1a1a2e;
+        }
+        .slide-drop-zone {
+            width: 100%;
+            max-width: 700px;
+            aspect-ratio: 16/9;
+            border: 3px dashed #334155;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            cursor: pointer;
+            transition: border-color 0.2s, color 0.2s;
+            text-align: center;
+            gap: 12px;
+            padding: 20px;
+        }
+        .slide-drop-zone:hover, .slide-drop-zone.drag-over {
+            border-color: #667eea;
+            color: #a5b4fc;
+        }
+        .slide-drop-zone .drop-icon { font-size: 3em; }
+        .slide-drop-zone .drop-title { font-size: 1.1em; font-weight: 700; }
+        .slide-drop-zone .drop-sub { font-size: 0.85em; opacity: 0.7; }
+        #slideCanvas {
+            max-width: 100%;
+            border-radius: 6px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+            display: none;
+            background: white;
+        }
+        #slideRenderArea {
+            width: 100%;
+            max-width: 700px;
+            display: none;
+        }
+        #slideRenderArea .slide-wrap {
+            width: 100%;
+            aspect-ratio: 16/9;
+            position: relative;
+            background: white;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+        }
+        /* Tracker panel */
+        .split-tracker-panel {
+            flex: 1;
+            overflow-y: auto;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 12px;
+        }
+        .split-tracker-panel .container {
+            max-width: 100%;
+            margin: 0;
+            border-radius: 12px;
+        }
+        .split-tracker-panel .header {
+            padding: 16px 20px;
+            border-radius: 12px 12px 0 0;
+        }
+        .split-tracker-panel .header h1 { font-size: 1.4em; margin-bottom: 2px; }
+        .split-tracker-panel .content { padding: 16px; }
+        /* Resize handle */
+        .resize-handle {
+            width: 6px;
+            background: #334155;
+            cursor: col-resize;
+            flex-shrink: 0;
+            transition: background 0.15s;
+        }
+        .resize-handle:hover { background: #667eea; }
+        /* Slide loading spinner */
+        .slide-loading {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            color: #94a3b8;
+        }
+        .spinner {
+            width: 36px; height: 36px;
+            border: 4px solid #334155;
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .slide-error {
+            display: none;
+            color: #f87171;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+        /* Thumbnail strip */
+        .thumbnail-strip {
+            background: #0f172a;
+            padding: 6px 10px;
+            display: none;
+            gap: 6px;
+            overflow-x: auto;
+            flex-shrink: 0;
+            max-height: 80px;
+            scrollbar-width: thin;
+        }
+        .thumb {
+            width: 80px;
+            height: 45px;
+            flex-shrink: 0;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            background: #1e293b;
+            position: relative;
+        }
+        .thumb.active { border-color: #667eea; }
+        .thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .thumb-num {
+            position: absolute; bottom: 2px; right: 3px;
+            font-size: 9px; color: white;
+            background: rgba(0,0,0,0.6);
+            padding: 1px 3px; border-radius: 2px;
         }
     </style>
 </head>
@@ -219,14 +654,57 @@
     <!-- Teacher View (main interface) -->
     <div id="teacherView">
         <!-- Mode Selector Bar -->
-        <div style="background: #1e293b; color: white; padding: 15px 30px; text-align: center; position: sticky; top: 0; z-index: 100;">
-            <label style="font-size: 18px; font-weight: bold; margin-right: 15px;">Display Mode:</label>
-            <select id="modeSelect" onchange="app.changeMode()" style="padding: 10px 20px; font-size: 16px; border-radius: 5px; border: 2px solid #667eea; background: white; cursor: pointer;">
+        <div style="background: #1e293b; color: white; padding: 10px 20px; text-align: center; position: sticky; top: 0; z-index: 100; display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap;">
+            <label style="font-size: 16px; font-weight: bold;">Display Mode:</label>
+            <select id="modeSelect" onchange="app.changeMode()" style="padding: 8px 16px; font-size: 15px; border-radius: 5px; border: 2px solid #667eea; background: white; cursor: pointer;">
                 <option value="">-- Select Mode --</option>
                 <option value="teacher">👨‍🏫 Teacher View (Full Controls)</option>
+                <option value="split">🖥️ Presentation + Tracker (Split Screen)</option>
                 <option value="student">👥 Student View (Projector Display)</option>
             </select>
-            <span style="margin-left: 20px; font-size: 14px; opacity: 0.8;">Open two tabs and select different modes for each</span>
+            <span style="font-size: 13px; opacity: 0.7;">Open two tabs and select different modes for each</span>
+        </div>
+
+        <!-- Split Screen Layout (slides left, tracker right) -->
+        <div class="split-layout" id="splitLayout">
+            <!-- Slides Panel -->
+            <div class="split-slides-panel" id="slidesPanel">
+                <div class="slides-toolbar">
+                    <button onclick="app.slides.prev()" id="slidePrevBtn" disabled style="background:#667eea; color:white;">◀ Prev</button>
+                    <button onclick="app.slides.next()" id="slideNextBtn" disabled style="background:#667eea; color:white;">Next ▶</button>
+                    <span class="slide-counter" id="slideCounter">No slides loaded</span>
+                    <button onclick="app.slides.toggleFullscreen()" id="slideFullBtn" disabled style="background:#334155; color:#94a3b8;">⛶ Full</button>
+                    <button onclick="document.getElementById('pptxFileInput').click()" style="background:#10b981; color:white; margin-left:4px;">📂 Load PPTX</button>
+                    <span class="slide-filename" id="slideFilename"></span>
+                    <input type="file" id="pptxFileInput" accept=".pptx" style="display:none;" onchange="app.slides.loadFile(event)">
+                </div>
+                <div class="thumbnail-strip" id="thumbnailStrip"></div>
+                <div class="slides-viewport" id="slidesViewport">
+                    <div class="slide-drop-zone" id="slideDropZone"
+                         ondragover="event.preventDefault(); this.classList.add('drag-over')"
+                         ondragleave="this.classList.remove('drag-over')"
+                         ondrop="app.slides.handleDrop(event)"
+                         onclick="document.getElementById('pptxFileInput').click()">
+                        <div class="drop-icon">📊</div>
+                        <div class="drop-title">Load your PowerPoint</div>
+                        <div class="drop-sub">Click or drag & drop a .pptx file here</div>
+                    </div>
+                    <div class="slide-loading" id="slideLoading">
+                        <div class="spinner"></div>
+                        <div>Processing slides…</div>
+                    </div>
+                    <div class="slide-error" id="slideError"></div>
+                    <div id="slideRenderArea"></div>
+                </div>
+            </div>
+
+            <!-- Resize handle -->
+            <div class="resize-handle" id="resizeHandle"></div>
+
+            <!-- Tracker Panel -->
+            <div class="split-tracker-panel" id="splitTrackerPanel">
+                <!-- tracker container cloned here by JS -->
+            </div>
         </div>
 
     <div class="container">
@@ -281,12 +759,148 @@
                 <div style="background: #f9fafb; padding: 15px; border-radius: 10px; margin-top: 20px; display: none;" id="settings">
                     <h3>Settings</h3>
                     <label style="display: block; margin: 10px 0;">
-                        <input type="checkbox" id="weighted" checked onchange="app.toggleWeighted()"> Use weighted selection
-                    </label>
-                    <label style="display: block; margin: 10px 0;">
                         Skip limit per session: <input type="number" id="skipLimit" value="3" min="0" max="20" style="width: 80px;" onchange="app.updateSkipLimit()">
                     </label>
                     <button class="btn" style="background: #6b7280; color: white;" onclick="app.resetSkips()">Reset Session Skips</button>
+
+                    <!-- Weighted Selection Settings -->
+                    <div class="weighted-settings" id="weightedSettingsPanel">
+                        <div class="weighted-header">
+                            <span>🎲</span>
+                            <h4>Weighted Selection Settings</h4>
+                        </div>
+
+                        <div class="weighted-toggle-wrap">
+                            <input type="checkbox" id="weighted" checked onchange="app.toggleWeighted()">
+                            <label for="weighted">Use weighted selection <span class="toggle-sub">— students are picked with adjusted probability based on activity</span></label>
+                        </div>
+
+                        <div id="weightControls">
+                            <div class="weight-grid">
+
+                                <!-- Volunteering weight -->
+                                <div class="weight-row">
+                                    <div class="weight-row-label">🙋 Volunteering</div>
+                                    <div class="weight-direction-group">
+                                        <label><input type="radio" name="wVolunteerDir" value="decrease" checked onchange="app.updateWeightSettings()"> Less likely to be picked</label>
+                                        <label><input type="radio" name="wVolunteerDir" value="increase" onchange="app.updateWeightSettings()"> More likely</label>
+                                    </div>
+                                    <div class="weight-amount-wrap">
+                                        <input type="number" id="wVolunteerAmt" value="30" min="0" max="200" onchange="app.updateWeightSettings()">
+                                        <span>weight change per event</span>
+                                    </div>
+                                </div>
+
+                                <!-- Correct weight -->
+                                <div class="weight-row">
+                                    <div class="weight-row-label">✅ Correct Response</div>
+                                    <div class="weight-direction-group">
+                                        <label><input type="radio" name="wCorrectDir" value="decrease" checked onchange="app.updateWeightSettings()"> Less likely to be picked</label>
+                                        <label><input type="radio" name="wCorrectDir" value="increase" onchange="app.updateWeightSettings()"> More likely</label>
+                                    </div>
+                                    <div class="weight-amount-wrap">
+                                        <input type="number" id="wCorrectAmt" value="15" min="0" max="200" onchange="app.updateWeightSettings()">
+                                        <span>weight change per event</span>
+                                    </div>
+                                </div>
+
+                                <!-- Incorrect weight -->
+                                <div class="weight-row">
+                                    <div class="weight-row-label">❌ Incorrect Response</div>
+                                    <div class="weight-direction-group">
+                                        <label><input type="radio" name="wIncorrectDir" value="decrease" onchange="app.updateWeightSettings()"> Less likely to be picked</label>
+                                        <label><input type="radio" name="wIncorrectDir" value="increase" checked onchange="app.updateWeightSettings()"> More likely</label>
+                                    </div>
+                                    <div class="weight-amount-wrap">
+                                        <input type="number" id="wIncorrectAmt" value="10" min="0" max="200" onchange="app.updateWeightSettings()">
+                                        <span>weight change per event</span>
+                                    </div>
+                                </div>
+
+                                <!-- Skip weight -->
+                                <div class="weight-row">
+                                    <div class="weight-row-label">⏭️ Skipping</div>
+                                    <div class="weight-direction-group">
+                                        <label><input type="radio" name="wSkipDir" value="decrease" onchange="app.updateWeightSettings()"> Less likely to be picked</label>
+                                        <label><input type="radio" name="wSkipDir" value="increase" checked onchange="app.updateWeightSettings()"> More likely</label>
+                                    </div>
+                                    <div class="weight-amount-wrap">
+                                        <input type="number" id="wSkipAmt" value="20" min="0" max="200" onchange="app.updateWeightSettings()">
+                                        <span>weight change per event</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="weight-preview" id="weightPreview">
+                                <div class="wp-title">How pick probability is calculated</div>
+                                <span id="weightPreviewText">Base weight: 100 — volunteer: −30 — correct: −15 + incorrect: +10 + skip: +20</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Participation Scoring Settings -->
+                    <div class="scoring-settings">
+                        <h4>⚖️ Participation Score Settings</h4>
+                        <div class="scoring-grid">
+
+                            <!-- Correct -->
+                            <div class="scoring-row">
+                                <label>✅ Correct Response <span class="scoring-effect-badge badge-positive">+</span></label>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="correctEffect" value="add" checked onchange="app.updateScoringSettings()"> Add</label>
+                                    <label><input type="radio" name="correctEffect" value="subtract" onchange="app.updateScoringSettings()"> Subtract</label>
+                                </div>
+                                <div class="point-input-wrap">
+                                    <input type="number" id="correctPoints" value="2" min="0" max="100" onchange="app.updateScoringSettings()">
+                                    <span>pts each</span>
+                                </div>
+                            </div>
+
+                            <!-- Volunteer -->
+                            <div class="scoring-row">
+                                <label>🙋 Volunteering <span class="scoring-effect-badge badge-positive">+</span></label>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="volunteerEffect" value="add" checked onchange="app.updateScoringSettings()"> Add</label>
+                                    <label><input type="radio" name="volunteerEffect" value="subtract" onchange="app.updateScoringSettings()"> Subtract</label>
+                                </div>
+                                <div class="point-input-wrap">
+                                    <input type="number" id="volunteerPoints" value="1" min="0" max="100" onchange="app.updateScoringSettings()">
+                                    <span>pts each</span>
+                                </div>
+                            </div>
+
+                            <!-- Incorrect -->
+                            <div class="scoring-row">
+                                <label>❌ Incorrect Response <span class="scoring-effect-badge badge-negative">−</span></label>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="incorrectEffect" value="add" onchange="app.updateScoringSettings()"> Add</label>
+                                    <label><input type="radio" name="incorrectEffect" value="subtract" checked onchange="app.updateScoringSettings()"> Subtract</label>
+                                </div>
+                                <div class="point-input-wrap">
+                                    <input type="number" id="incorrectPoints" value="1" min="0" max="100" onchange="app.updateScoringSettings()">
+                                    <span>pts each</span>
+                                </div>
+                            </div>
+
+                            <!-- Skip -->
+                            <div class="scoring-row">
+                                <label>⏭️ Skipping <span class="scoring-effect-badge badge-negative">−</span></label>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="skipEffect" value="add" onchange="app.updateScoringSettings()"> Add</label>
+                                    <label><input type="radio" name="skipEffect" value="subtract" checked onchange="app.updateScoringSettings()"> Subtract</label>
+                                </div>
+                                <div class="point-input-wrap">
+                                    <input type="number" id="skipPoints" value="1" min="0" max="100" onchange="app.updateScoringSettings()">
+                                    <span>pts each</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="formula-preview" id="formulaPreview">
+                            Total Points = (correct × 2) + (volunteers × 1) − (incorrect × 1) − (skips × 1)<br>
+                            Leaderboard Score = Total Points ÷ Times Picked
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -345,12 +959,34 @@
             classes: {},
             currentClass: null,
             currentStudent: null,
+            lastPickedStudent: null,
             presentStudents: new Set(),
             useWeighted: true,
             skipLimit: 3,
             sessionSkips: {},
             broadcastChannel: null,
             mode: null,
+            scoringSettings: {
+                correctPoints: 2,
+                correctEffect: 'add',
+                incorrectPoints: 1,
+                incorrectEffect: 'subtract',
+                volunteerPoints: 1,
+                volunteerEffect: 'add',
+                skipPoints: 1,
+                skipEffect: 'subtract'
+            },
+            weightSettings: {
+                enabled: true,
+                volunteerAmt: 30,
+                volunteerDir: 'decrease',
+                correctAmt: 15,
+                correctDir: 'decrease',
+                incorrectAmt: 10,
+                incorrectDir: 'increase',
+                skipAmt: 20,
+                skipDir: 'increase'
+            },
 
             init() {
                 // Set up BroadcastChannel for sync between tabs
@@ -363,6 +999,12 @@
 
                 const saved = localStorage.getItem('participationData');
                 if (saved) this.classes = JSON.parse(saved);
+                
+                const savedScoring = localStorage.getItem('participationScoringSettings');
+                if (savedScoring) this.scoringSettings = JSON.parse(savedScoring);
+
+                const savedWeight = localStorage.getItem('participationWeightSettings');
+                if (savedWeight) this.weightSettings = JSON.parse(savedWeight);
                 
                 // Show teacher view by default
                 this.updateSelectors();
@@ -379,23 +1021,47 @@
 
             setMode(mode) {
                 this.mode = mode;
+                document.body.classList.remove('student-view', 'split-mode');
+                document.body.style.background = '';
+
+                const studentView = document.getElementById('studentView');
+                const teacherView = document.getElementById('teacherView');
+                const splitLayout = document.getElementById('splitLayout');
+                const mainContainer = document.querySelector('#teacherView > .container');
 
                 if (mode === 'student') {
-                    // Show student view as bottom banner
                     document.body.classList.add('student-view');
-                    const studentView = document.getElementById('studentView');
-                    const teacherView = document.getElementById('teacherView');
                     if (studentView) studentView.style.display = 'block';
                     if (teacherView) teacherView.style.display = 'none';
                     document.body.style.background = '#1a1a2e';
                     document.title = 'Student View - Participation Tracker';
+                } else if (mode === 'split') {
+                    document.body.classList.add('split-mode');
+                    if (studentView) studentView.style.display = 'none';
+                    if (teacherView) teacherView.style.display = 'flex';
+                    if (splitLayout) splitLayout.style.display = 'flex';
+                    if (mainContainer) mainContainer.style.display = 'none';
+                    document.title = 'Presentation + Tracker';
+                    // Move tracker container into split panel
+                    const trackerPanel = document.getElementById('splitTrackerPanel');
+                    if (trackerPanel && mainContainer && !trackerPanel.contains(mainContainer)) {
+                        trackerPanel.appendChild(mainContainer);
+                        mainContainer.style.display = 'block';
+                    }
+                    this.slides.initResize();
+                    this.updateSelectors();
+                    this.updateClassList();
                 } else {
-                    // Show teacher view
-                    document.body.classList.remove('student-view');
-                    const studentView = document.getElementById('studentView');
-                    const teacherView = document.getElementById('teacherView');
+                    // Teacher view
                     if (studentView) studentView.style.display = 'none';
                     if (teacherView) teacherView.style.display = 'block';
+                    if (splitLayout) splitLayout.style.display = 'none';
+                    // Move container back if it was moved
+                    const trackerPanel = document.getElementById('splitTrackerPanel');
+                    if (mainContainer && trackerPanel && trackerPanel.contains(mainContainer)) {
+                        teacherView.appendChild(mainContainer);
+                    }
+                    if (mainContainer) mainContainer.style.display = 'block';
                     document.title = 'Teacher View - Participation Tracker';
                     this.updateSelectors();
                     this.updateClassList();
@@ -540,6 +1206,7 @@
 
                 this.currentClass = name;
                 this.currentStudent = null;
+                this.lastPickedStudent = null;
                 this.presentStudents.clear();
                 this.sessionSkips = {};
 
@@ -559,6 +1226,8 @@
                 document.getElementById('pickBtn').disabled = false;
                 document.getElementById('volunteerBtn').disabled = false;
                 document.getElementById('selectedName').textContent = 'Ready to pick!';
+                this.syncScoringUI();
+                this.syncWeightUI();
                 this.updateStats();
             },
 
@@ -602,7 +1271,69 @@
             },
 
             toggleWeighted() {
-                this.useWeighted = document.getElementById('weighted').checked;
+                this.weightSettings.enabled = document.getElementById('weighted').checked;
+                localStorage.setItem('participationWeightSettings', JSON.stringify(this.weightSettings));
+                const controls = document.getElementById('weightControls');
+                if (controls) controls.style.opacity = this.weightSettings.enabled ? '1' : '0.4';
+                if (controls) controls.style.pointerEvents = this.weightSettings.enabled ? '' : 'none';
+            },
+
+            updateWeightSettings() {
+                const getDir = name => document.querySelector(`input[name="${name}"]:checked`)?.value || 'decrease';
+                this.weightSettings = {
+                    enabled: document.getElementById('weighted').checked,
+                    volunteerAmt: parseInt(document.getElementById('wVolunteerAmt').value) || 0,
+                    volunteerDir: getDir('wVolunteerDir'),
+                    correctAmt: parseInt(document.getElementById('wCorrectAmt').value) || 0,
+                    correctDir: getDir('wCorrectDir'),
+                    incorrectAmt: parseInt(document.getElementById('wIncorrectAmt').value) || 0,
+                    incorrectDir: getDir('wIncorrectDir'),
+                    skipAmt: parseInt(document.getElementById('wSkipAmt').value) || 0,
+                    skipDir: getDir('wSkipDir'),
+                };
+                localStorage.setItem('participationWeightSettings', JSON.stringify(this.weightSettings));
+                this.updateWeightPreview();
+            },
+
+            updateWeightPreview() {
+                const w = this.weightSettings;
+                const fmt = (label, dir, amt) => {
+                    const sign = dir === 'decrease' ? '−' : '+';
+                    return `${label}: ${sign}${amt}`;
+                };
+                const parts = [
+                    fmt('volunteer', w.volunteerDir, w.volunteerAmt),
+                    fmt('correct', w.correctDir, w.correctAmt),
+                    fmt('incorrect', w.incorrectDir, w.incorrectAmt),
+                    fmt('skip', w.skipDir, w.skipAmt),
+                ];
+                const el = document.getElementById('weightPreviewText');
+                if (el) el.textContent = `Base weight: 100 per student — ${parts.join(' — ')} (per occurrence, min weight: 1)`;
+            },
+
+            syncWeightUI() {
+                const w = this.weightSettings;
+                const cb = document.getElementById('weighted');
+                if (cb) cb.checked = w.enabled;
+                const setNum = (id, val) => { const el = document.getElementById(id); if (el) el.value = val; };
+                setNum('wVolunteerAmt', w.volunteerAmt);
+                setNum('wCorrectAmt', w.correctAmt);
+                setNum('wIncorrectAmt', w.incorrectAmt);
+                setNum('wSkipAmt', w.skipAmt);
+                const setRadio = (name, val) => {
+                    const el = document.querySelector(`input[name="${name}"][value="${val}"]`);
+                    if (el) el.checked = true;
+                };
+                setRadio('wVolunteerDir', w.volunteerDir);
+                setRadio('wCorrectDir', w.correctDir);
+                setRadio('wIncorrectDir', w.incorrectDir);
+                setRadio('wSkipDir', w.skipDir);
+                const controls = document.getElementById('weightControls');
+                if (controls) {
+                    controls.style.opacity = w.enabled ? '1' : '0.4';
+                    controls.style.pointerEvents = w.enabled ? '' : 'none';
+                }
+                this.updateWeightPreview();
             },
 
             updateSkipLimit() {
@@ -612,6 +1343,61 @@
             resetSkips() {
                 this.sessionSkips = {};
                 this.toast('Session skips reset!', '#10b981');
+            },
+
+            updateScoringSettings() {
+                const getRadio = name => document.querySelector(`input[name="${name}"]:checked`)?.value || this.scoringSettings[name.replace('Effect','Effect')];
+                this.scoringSettings = {
+                    correctPoints: parseInt(document.getElementById('correctPoints').value) || 0,
+                    correctEffect: document.querySelector('input[name="correctEffect"]:checked')?.value || 'add',
+                    incorrectPoints: parseInt(document.getElementById('incorrectPoints').value) || 0,
+                    incorrectEffect: document.querySelector('input[name="incorrectEffect"]:checked')?.value || 'subtract',
+                    volunteerPoints: parseInt(document.getElementById('volunteerPoints').value) || 0,
+                    volunteerEffect: document.querySelector('input[name="volunteerEffect"]:checked')?.value || 'add',
+                    skipPoints: parseInt(document.getElementById('skipPoints').value) || 0,
+                    skipEffect: document.querySelector('input[name="skipEffect"]:checked')?.value || 'subtract',
+                };
+                localStorage.setItem('participationScoringSettings', JSON.stringify(this.scoringSettings));
+                this.updateFormulaPreview();
+            },
+
+            updateFormulaPreview() {
+                const s = this.scoringSettings;
+                const sign = (effect, pts) => effect === 'add' ? `+ (correct × ${pts})` : `− (correct × ${pts})`;
+                const correctPart = s.correctEffect === 'add' ? `(correct × ${s.correctPoints})` : `−(correct × ${s.correctPoints})`;
+                const volunteerPart = s.volunteerEffect === 'add' ? `+ (volunteers × ${s.volunteerPoints})` : `− (volunteers × ${s.volunteerPoints})`;
+                const incorrectPart = s.incorrectEffect === 'subtract' ? `− (incorrect × ${s.incorrectPoints})` : `+ (incorrect × ${s.incorrectPoints})`;
+                const skipPart = s.skipEffect === 'subtract' ? `− (skips × ${s.skipPoints})` : `+ (skips × ${s.skipPoints})`;
+                document.getElementById('formulaPreview').innerHTML =
+                    `Total Points = ${correctPart} ${volunteerPart} ${incorrectPart} ${skipPart}<br>Leaderboard Score = Total Points ÷ Times Picked`;
+            },
+
+            syncScoringUI() {
+                const s = this.scoringSettings;
+                document.getElementById('correctPoints').value = s.correctPoints;
+                document.getElementById('incorrectPoints').value = s.incorrectPoints;
+                document.getElementById('volunteerPoints').value = s.volunteerPoints;
+                document.getElementById('skipPoints').value = s.skipPoints;
+                document.querySelector(`input[name="correctEffect"][value="${s.correctEffect}"]`).checked = true;
+                document.querySelector(`input[name="incorrectEffect"][value="${s.incorrectEffect}"]`).checked = true;
+                document.querySelector(`input[name="volunteerEffect"][value="${s.volunteerEffect}"]`).checked = true;
+                document.querySelector(`input[name="skipEffect"][value="${s.skipEffect}"]`).checked = true;
+                this.updateFormulaPreview();
+            },
+
+            calcParticipationPoints(stats) {
+                const s = this.scoringSettings;
+                const applyEffect = (effect, pts, count) => effect === 'add' ? pts * count : -(pts * count);
+                return applyEffect(s.correctEffect, s.correctPoints, stats.correct || 0)
+                     + applyEffect(s.volunteerEffect, s.volunteerPoints, stats.volunteers || 0)
+                     + applyEffect(s.incorrectEffect, s.incorrectPoints, stats.incorrect || 0)
+                     + applyEffect(s.skipEffect, s.skipPoints, stats.skips || 0);
+            },
+
+            calcLeaderboardScore(stats) {
+                const picks = stats.picks || 0;
+                if (picks === 0) return 0;
+                return this.calcParticipationPoints(stats) / picks;
             },
 
             updateStats() {
@@ -633,16 +1419,17 @@
             },
 
             getWeightedStudent(list) {
-                if (!this.useWeighted) return list[Math.floor(Math.random() * list.length)];
+                const w = this.weightSettings;
+                if (!w.enabled) return list[Math.floor(Math.random() * list.length)];
+                const applyDir = (base, dir, amt, count) => dir === 'decrease' ? base - (amt * count) : base + (amt * count);
                 const weights = list.map(name => {
                     const s = this.classes[this.currentClass].students[name];
-                    // Formula: Base 100
-                    // -10 per pick (general participation penalty)
-                    // -30 per volunteer (strong penalty for volunteering)
-                    // -15 per correct answer (reward good performance with less pressure)
-                    // +10 per incorrect answer (give more chances to improve)
-                    // +20 per skip (encourage participation after passing)
-                    return Math.max(1, 100 - (s.picks * 10) - (s.volunteers * 30) - (s.correct * 15) + (s.incorrect * 10) + (s.skips * 20));
+                    let weight = 100;
+                    weight = applyDir(weight, w.volunteerDir, w.volunteerAmt, s.volunteers || 0);
+                    weight = applyDir(weight, w.correctDir, w.correctAmt, s.correct || 0);
+                    weight = applyDir(weight, w.incorrectDir, w.incorrectAmt, s.incorrect || 0);
+                    weight = applyDir(weight, w.skipDir, w.skipAmt, s.skips || 0);
+                    return Math.max(1, weight);
                 });
                 const total = weights.reduce((sum, w) => sum + w, 0);
                 let rand = Math.random() * total;
@@ -657,7 +1444,20 @@
                 const list = Array.from(this.presentStudents);
                 if (list.length === 0) return this.toast('No students present!', '#ef4444');
 
-                this.currentStudent = this.getWeightedStudent(list);
+                // Exclude the last picked student so no one is called twice in a row.
+                // If only one student is present, fall back to picking the student with
+                // the fewest total picks so at least the fairest choice is made.
+                let eligible = list.filter(n => n !== this.lastPickedStudent);
+                if (eligible.length === 0) {
+                    // Only one student present — pick the one with fewest picks (ties broken randomly)
+                    const students = this.classes[this.currentClass].students;
+                    const minPicks = Math.min(...list.map(n => students[n].picks));
+                    const leastPicked = list.filter(n => students[n].picks === minPicks);
+                    eligible = leastPicked;
+                }
+
+                this.currentStudent = this.getWeightedStudent(eligible);
+                this.lastPickedStudent = this.currentStudent;
                 this.classes[this.currentClass].students[this.currentStudent].picks++;
                 this.save();
 
@@ -698,6 +1498,7 @@
 
             selectVolunteer(name) {
                 this.currentStudent = name;
+                this.lastPickedStudent = name;
                 this.classes[this.currentClass].students[name].picks++;
                 this.classes[this.currentClass].students[name].volunteers++;
                 this.save();
@@ -728,6 +1529,7 @@
                 document.getElementById('correctBtn').disabled = true;
                 document.getElementById('incorrectBtn').disabled = true;
                 document.getElementById('skipBtn').disabled = true;
+                document.getElementById('selectedName').textContent = 'Ready to pick!';
                 this.currentStudent = null;
                 this.updateStats();
                 
@@ -749,6 +1551,7 @@
                 document.getElementById('correctBtn').disabled = true;
                 document.getElementById('incorrectBtn').disabled = true;
                 document.getElementById('skipBtn').disabled = true;
+                document.getElementById('selectedName').textContent = 'Ready to pick!';
                 this.currentStudent = null;
                 this.updateStats();
                 
@@ -777,11 +1580,30 @@
                 document.getElementById('resetBtn').disabled = false;
 
                 const students = this.classes[name].students;
-                const sorted = Object.entries(students).sort((a, b) => b[1].correct - a[1].correct);
+                // Sort by leaderboard score descending
+                const sorted = Object.entries(students).sort((a, b) => {
+                    return this.calcLeaderboardScore(b[1]) - this.calcLeaderboardScore(a[1]);
+                });
 
-                let html = '<table class="leaderboard-table"><thead><tr><th>Rank</th><th>Name</th><th>Picks</th><th>Volunteers</th><th>Skips</th><th>Correct</th><th>Incorrect</th></tr></thead><tbody>';
+                let html = `<table class="leaderboard-table"><thead><tr>
+                    <th>Rank</th><th>Name</th><th>Picks</th><th>Volunteers</th><th>Skips</th>
+                    <th>Correct</th><th>Incorrect</th><th>Total Participation Pts</th><th>Leaderboard Score</th>
+                </tr></thead><tbody>`;
                 sorted.forEach(([sName, stats], i) => {
-                    html += `<tr><td><strong>#${i + 1}</strong></td><td>${sName}</td><td>${stats.picks}</td><td>${stats.volunteers || 0}</td><td>${stats.skips || 0}</td><td style="color: #10b981;">${stats.correct}</td><td style="color: #ef4444;">${stats.incorrect}</td></tr>`;
+                    const totalPts = this.calcParticipationPoints(stats);
+                    const lbScore = this.calcLeaderboardScore(stats);
+                    const scoreDisplay = stats.picks > 0 ? lbScore.toFixed(2) : '—';
+                    html += `<tr>
+                        <td><strong>#${i + 1}</strong></td>
+                        <td>${sName}</td>
+                        <td>${stats.picks}</td>
+                        <td>${stats.volunteers || 0}</td>
+                        <td>${stats.skips || 0}</td>
+                        <td style="color: #10b981;">${stats.correct}</td>
+                        <td style="color: #ef4444;">${stats.incorrect}</td>
+                        <td style="font-weight: 600; color: #667eea;">${totalPts}</td>
+                        <td style="font-weight: 700; color: #764ba2;">${scoreDisplay}</td>
+                    </tr>`;
                 });
                 html += '</tbody></table>';
                 content.innerHTML = html;
@@ -804,10 +1626,14 @@
                 if (!name) return;
 
                 const students = this.classes[name].students;
-                const sorted = Object.entries(students).sort((a, b) => b[1].correct - a[1].correct);
-                let csv = 'Rank,Name,Picks,Volunteers,Skips,Correct,Incorrect\n';
+                const sorted = Object.entries(students).sort((a, b) => {
+                    return this.calcLeaderboardScore(b[1]) - this.calcLeaderboardScore(a[1]);
+                });
+                let csv = 'Rank,Name,Picks,Volunteers,Skips,Correct,Incorrect,Total Participation Points,Leaderboard Score\n';
                 sorted.forEach(([sName, stats], i) => {
-                    csv += `${i + 1},"${sName}",${stats.picks},${stats.volunteers || 0},${stats.skips || 0},${stats.correct},${stats.incorrect}\n`;
+                    const totalPts = this.calcParticipationPoints(stats);
+                    const lbScore = stats.picks > 0 ? this.calcLeaderboardScore(stats).toFixed(2) : '0';
+                    csv += `${i + 1},"${sName}",${stats.picks},${stats.volunteers || 0},${stats.skips || 0},${stats.correct},${stats.incorrect},${totalPts},${lbScore}\n`;
                 });
 
                 // Create download link
@@ -873,6 +1699,371 @@
         };
 
         app.init();
+    </script>
+
+    <!-- JSZip for PPTX parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script>
+    // ── Slide Engine ──────────────────────────────────────────────────────────
+    // Parses .pptx (which is a zip of XML + media), extracts slide images
+    // by rendering each slide's embedded image/thumbnail, then displays them.
+    app.slides = {
+        slideImages: [],   // Array of object URLs (one per slide)
+        current: 0,
+        total: 0,
+        resizeInitialized: false,
+
+        async loadFile(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            await this.processFile(file);
+            event.target.value = '';
+        },
+
+        async handleDrop(event) {
+            event.preventDefault();
+            document.getElementById('slideDropZone').classList.remove('drag-over');
+            const file = event.dataTransfer.files[0];
+            if (!file || !file.name.toLowerCase().endsWith('.pptx')) {
+                app.slides.showError('Please drop a .pptx file.');
+                return;
+            }
+            await this.processFile(file);
+        },
+
+        showLoading(show) {
+            document.getElementById('slideLoading').style.display = show ? 'flex' : 'none';
+            document.getElementById('slideDropZone').style.display = show ? 'none' : '';
+            document.getElementById('slideError').style.display = 'none';
+        },
+
+        showError(msg) {
+            document.getElementById('slideLoading').style.display = 'none';
+            document.getElementById('slideDropZone').style.display = 'flex';
+            const err = document.getElementById('slideError');
+            err.style.display = 'block';
+            err.textContent = '⚠️ ' + msg;
+        },
+
+        async processFile(file) {
+            this.showLoading(true);
+            document.getElementById('slideFilename').textContent = file.name;
+
+            // Revoke old object URLs
+            this.slideImages.forEach(u => URL.revokeObjectURL(u));
+            this.slideImages = [];
+
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                const zip = await JSZip.loadAsync(arrayBuffer);
+
+                // Extract slide thumbnail images if present (ppt/media/ or ppt/slides/thumbnails/)
+                // Strategy: render each slide to a canvas using its XML + media
+                // For maximum compatibility we use a simpler approach:
+                // 1. Try to find embedded thumbnails (docProps/thumbnails are only 1)
+                // 2. Fall back to rendering slide XML as styled HTML via canvas
+
+                const images = await this._extractSlideImages(zip);
+
+                if (images.length === 0) {
+                    this.showError('Could not render slides. Make sure the file is a valid .pptx.');
+                    return;
+                }
+
+                this.slideImages = images;
+                this.total = images.length;
+                this.current = 0;
+
+                this.buildThumbnails();
+                this.renderSlide(0);
+                this.updateControls();
+
+                document.getElementById('slideDropZone').style.display = 'none';
+                document.getElementById('slideLoading').style.display = 'none';
+                document.getElementById('slideRenderArea').style.display = 'block';
+
+            } catch (e) {
+                console.error(e);
+                this.showError('Failed to load PPTX: ' + e.message);
+            }
+        },
+
+        async _extractSlideImages(zip) {
+            // Get all slide XML files in order
+            const slideFiles = Object.keys(zip.files)
+                .filter(n => n.match(/^ppt\/slides\/slide\d+\.xml$/))
+                .sort((a, b) => {
+                    const na = parseInt(a.match(/\d+/)[0]);
+                    const nb = parseInt(b.match(/\d+/)[0]);
+                    return na - nb;
+                });
+
+            if (slideFiles.length === 0) return [];
+
+            // Build media map: filename -> blob URL
+            const mediaMap = {};
+            for (const [path, file] of Object.entries(zip.files)) {
+                if (path.startsWith('ppt/media/') && !file.dir) {
+                    const ext = path.split('.').pop().toLowerCase();
+                    const mimeMap = { png:'image/png', jpg:'image/jpeg', jpeg:'image/jpeg', gif:'image/gif', svg:'image/svg+xml', emf:'image/x-emf', wmf:'image/x-wmf', bmp:'image/bmp' };
+                    const mime = mimeMap[ext] || 'image/png';
+                    const blob = await file.async('blob');
+                    mediaMap[path.split('/').pop()] = URL.createObjectURL(new Blob([blob], {type: mime}));
+                }
+            }
+
+            const images = [];
+
+            for (const slidePath of slideFiles) {
+                try {
+                    const xmlStr = await zip.files[slidePath].async('string');
+
+                    // Get slide relationships to map rId -> media file
+                    const relPath = slidePath.replace('slides/slide', 'slides/_rels/slide').replace('.xml', '.xml.rels');
+                    const relsStr = zip.files[relPath] ? await zip.files[relPath].async('string') : '';
+                    const rIdMap = this._parseRels(relsStr, mediaMap);
+
+                    // Get slide dimensions from presentation.xml
+                    const imgUrl = await this._renderSlideToImage(xmlStr, rIdMap, zip);
+                    if (imgUrl) images.push(imgUrl);
+                } catch(e) {
+                    console.warn('Slide render error:', e);
+                }
+            }
+            return images;
+        },
+
+        _parseRels(relsStr, mediaMap) {
+            const map = {};
+            if (!relsStr) return map;
+            const matches = relsStr.matchAll(/Id="(rId\d+)"[^>]*Target="([^"]+)"/g);
+            for (const m of matches) {
+                const filename = m[2].split('/').pop();
+                if (mediaMap[filename]) map[m[1]] = mediaMap[filename];
+            }
+            return map;
+        },
+
+        async _renderSlideToImage(xmlStr, rIdMap, zip) {
+            // Get slide dimensions
+            let slideW = 9144000, slideH = 5143500; // EMU defaults (10" x 7.5" = 16:9 ~)
+            try {
+                const presXml = await zip.files['ppt/presentation.xml'].async('string');
+                const szMatch = presXml.match(/p:sldSz[^/]*cx="(\d+)"[^/]*cy="(\d+)"/);
+                if (szMatch) { slideW = parseInt(szMatch[1]); slideH = parseInt(szMatch[2]); }
+            } catch(e) {}
+
+            const W = 960, H = Math.round(960 * slideH / slideW);
+            const canvas = document.createElement('canvas');
+            canvas.width = W; canvas.height = H;
+            const ctx = canvas.getContext('2d');
+
+            // Background
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, W, H);
+
+            // Try to detect background color from XML
+            const bgMatch = xmlStr.match(/p:bg>.*?<a:srgbClr val="([0-9A-Fa-f]{6})"/s);
+            if (bgMatch) {
+                ctx.fillStyle = '#' + bgMatch[1];
+                ctx.fillRect(0, 0, W, H);
+            }
+
+            const scaleX = W / slideW, scaleY = H / slideH;
+
+            // Draw images (blipFill)
+            const blipPattern = /<p:pic>.*?<\/p:pic>/gs;
+            const pics = [...(xmlStr.matchAll(blipPattern) || [])];
+
+            const imagePromises = pics.map(async (m) => {
+                try {
+                    const ridMatch = m[0].match(/r:embed="(rId\d+)"/);
+                    if (!ridMatch || !rIdMap[ridMatch[1]]) return;
+                    const imgUrl = rIdMap[ridMatch[1]];
+
+                    const xfrm = m[0].match(/a:xfrm[^>]*>(.*?)<\/a:xfrm>/s);
+                    if (!xfrm) return;
+                    const off = xfrm[1].match(/a:off[^/]*x="(\d+)"[^/]*y="(\d+)"/);
+                    const ext = xfrm[1].match(/a:ext[^/]*cx="(\d+)"[^/]*cy="(\d+)"/);
+                    if (!off || !ext) return;
+
+                    const x = parseInt(off[1]) * scaleX;
+                    const y = parseInt(off[2]) * scaleY;
+                    const w = parseInt(ext[1]) * scaleX;
+                    const h = parseInt(ext[2]) * scaleY;
+
+                    await new Promise((resolve) => {
+                        const img = new Image();
+                        img.crossOrigin = 'anonymous';
+                        img.onload = () => { try { ctx.drawImage(img, x, y, w, h); } catch(e){} resolve(); };
+                        img.onerror = () => resolve();
+                        img.src = imgUrl;
+                    });
+                } catch(e) {}
+            });
+            await Promise.all(imagePromises);
+
+            // Draw text shapes
+            const spPattern = /<p:sp>.*?<\/p:sp>/gs;
+            const shapes = [...(xmlStr.matchAll(spPattern) || [])];
+
+            for (const shape of shapes) {
+                const s = shape[0];
+                try {
+                    const xfrm = s.match(/a:xfrm[^>]*>(.*?)<\/a:xfrm>/s);
+                    if (!xfrm) continue;
+                    const off = xfrm[1].match(/a:off[^/]*x="(-?\d+)"[^/]*y="(-?\d+)"/);
+                    const ext = xfrm[1].match(/a:ext[^/]*cx="(\d+)"[^/]*cy="(\d+)"/);
+                    if (!off || !ext) continue;
+
+                    const x = parseInt(off[1]) * scaleX;
+                    const y = parseInt(off[2]) * scaleY;
+                    const w = parseInt(ext[1]) * scaleX;
+                    const h = parseInt(ext[2]) * scaleY;
+
+                    // Shape fill
+                    const solidFill = s.match(/spPr>.*?<a:solidFill>.*?<a:srgbClr val="([0-9A-Fa-f]{6})"/s);
+                    if (solidFill) {
+                        ctx.fillStyle = '#' + solidFill[1];
+                        ctx.fillRect(x, y, w, h);
+                    }
+
+                    // Text
+                    const paraPattern = /<a:p>(.*?)<\/a:p>/gs;
+                    const paras = [...(s.matchAll(paraPattern) || [])];
+                    let lineY = y + 4;
+
+                    for (const para of paras) {
+                        const p = para[1];
+                        // Font size
+                        const szMatch = p.match(/a:sz val="(\d+)"/);
+                        const sz = szMatch ? Math.round(parseInt(szMatch[1]) / 100 * scaleY * (slideH / H) * 0.85) : 14;
+                        const fontSz = Math.max(8, Math.min(sz, 60));
+
+                        // Bold
+                        const bold = p.match(/a:b val="1"/) || p.match(/<a:b\/>/) ? 'bold ' : '';
+
+                        // Color
+                        const colorMatch = p.match(/a:solidFill>.*?<a:srgbClr val="([0-9A-Fa-f]{6})"/s);
+                        ctx.fillStyle = colorMatch ? '#' + colorMatch[1] : '#000000';
+                        ctx.font = `${bold}${fontSz}px Segoe UI, Arial, sans-serif`;
+
+                        // Collect run text
+                        const runs = [...(p.matchAll(/<a:t>([^<]*)<\/a:t>/g) || [])];
+                        const text = runs.map(r => r[1]).join('');
+                        if (!text.trim()) { lineY += fontSz * 1.4; continue; }
+
+                        // Word wrap within shape
+                        const words = text.split(' ');
+                        let line = '';
+                        const lineH = fontSz * 1.4;
+                        for (const word of words) {
+                            const test = line + word + ' ';
+                            if (ctx.measureText(test).width > w - 8 && line) {
+                                ctx.fillText(line.trim(), x + 4, lineY + fontSz);
+                                line = word + ' ';
+                                lineY += lineH;
+                            } else {
+                                line = test;
+                            }
+                        }
+                        if (line.trim()) { ctx.fillText(line.trim(), x + 4, lineY + fontSz); lineY += lineH; }
+                    }
+                } catch(e) {}
+            }
+
+            return canvas.toDataURL('image/png');
+        },
+
+        buildThumbnails() {
+            const strip = document.getElementById('thumbnailStrip');
+            strip.innerHTML = '';
+            strip.style.display = 'flex';
+            this.slideImages.forEach((imgUrl, i) => {
+                const thumb = document.createElement('div');
+                thumb.className = 'thumb' + (i === 0 ? ' active' : '');
+                thumb.innerHTML = `<img src="${imgUrl}" alt="Slide ${i+1}"><span class="thumb-num">${i+1}</span>`;
+                thumb.onclick = () => this.goTo(i);
+                strip.appendChild(thumb);
+            });
+        },
+
+        renderSlide(index) {
+            const area = document.getElementById('slideRenderArea');
+            area.innerHTML = `<div class="slide-wrap"><img src="${this.slideImages[index]}" style="width:100%;height:100%;object-fit:contain;display:block;"></div>`;
+            area.style.display = 'block';
+            // Update thumbnail active state
+            document.querySelectorAll('#thumbnailStrip .thumb').forEach((t, i) => {
+                t.classList.toggle('active', i === index);
+            });
+            // Scroll thumbnail into view
+            const activeThumb = document.querySelector('#thumbnailStrip .thumb.active');
+            if (activeThumb) activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+        },
+
+        goTo(index) {
+            if (index < 0 || index >= this.total) return;
+            this.current = index;
+            this.renderSlide(index);
+            this.updateControls();
+        },
+
+        prev() { this.goTo(this.current - 1); },
+        next() { this.goTo(this.current + 1); },
+
+        updateControls() {
+            document.getElementById('slidePrevBtn').disabled = this.current <= 0;
+            document.getElementById('slideNextBtn').disabled = this.current >= this.total - 1;
+            document.getElementById('slideFullBtn').disabled = this.total === 0;
+            document.getElementById('slideCounter').textContent =
+                this.total > 0 ? `Slide ${this.current + 1} / ${this.total}` : 'No slides loaded';
+        },
+
+        toggleFullscreen() {
+            const panel = document.getElementById('slidesPanel');
+            if (!document.fullscreenElement) {
+                panel.requestFullscreen && panel.requestFullscreen();
+            } else {
+                document.exitFullscreen && document.exitFullscreen();
+            }
+        },
+
+        initResize() {
+            if (this.resizeInitialized) return;
+            this.resizeInitialized = true;
+            const handle = document.getElementById('resizeHandle');
+            const slidesPanel = document.getElementById('slidesPanel');
+            let dragging = false, startX = 0, startFlex = 60;
+
+            handle.addEventListener('mousedown', e => {
+                dragging = true;
+                startX = e.clientX;
+                startFlex = parseFloat(slidesPanel.style.flexBasis) || 60;
+                document.body.style.cursor = 'col-resize';
+                document.body.style.userSelect = 'none';
+            });
+            document.addEventListener('mousemove', e => {
+                if (!dragging) return;
+                const container = document.getElementById('splitLayout');
+                const total = container.offsetWidth;
+                const delta = e.clientX - startX;
+                const newPct = Math.min(80, Math.max(20, startFlex + (delta / total * 100)));
+                slidesPanel.style.flex = `0 0 ${newPct}%`;
+            });
+            document.addEventListener('mouseup', () => {
+                dragging = false;
+                document.body.style.cursor = '';
+                document.body.style.userSelect = '';
+            });
+
+            // Keyboard shortcuts for slides
+            document.addEventListener('keydown', e => {
+                if (app.mode !== 'split') return;
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') app.slides.next();
+                if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') app.slides.prev();
+            });
+        }
+    };
     </script>
 </body>
 </html>
