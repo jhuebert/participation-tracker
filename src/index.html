@@ -749,7 +749,8 @@
                 </div>
 
                 <div class="buttons">
-                    <button class="btn" style="background: #667eea; color: white;" onclick="app.pickRandom()" id="pickBtn" disabled>Pick Random Name</button>
+                    <button class="btn" style="background: #667eea; color: white;" onclick="app.pickRandom()" id="pickBtn" disabled>🎲 Pick Random</button>
+                    <button class="btn" style="background: #0ea5e9; color: white;" onclick="app.showTeacherPickModal()" id="teacherPickBtn" disabled>🍎 Teacher Pick</button>
                     <button class="btn" style="background: #f59e0b; color: white;" onclick="app.showVolunteerModal()" id="volunteerBtn" disabled>🙋 Volunteer</button>
                     <button class="btn" style="background: #10b981; color: white;" onclick="app.markAnswer(true)" id="correctBtn" disabled>✓ Correct</button>
                     <button class="btn" style="background: #ef4444; color: white;" onclick="app.markAnswer(false)" id="incorrectBtn" disabled>✗ Incorrect</button>
@@ -949,6 +950,19 @@
             <h2>🙋 Who Volunteered?</h2>
             <div id="volunteerList" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin: 20px 0;"></div>
             <button class="btn" style="background: #6b7280; color: white;" onclick="app.closeVolunteerModal()">Cancel</button>
+        </div>
+    </div>
+
+    <div id="teacherPickModal" class="modal">
+        <div class="modal-content">
+            <h2>🍎 Teacher Pick</h2>
+            <p style="color: #6b7280; font-size: 14px; margin: 6px 0 16px;">Select a student to call on. Their pick count will be recorded.</p>
+            <div style="margin-bottom: 14px;">
+                <input type="text" id="teacherPickSearch" placeholder="🔍 Search students..." oninput="app.filterTeacherPickList()"
+                    style="width: 100%; padding: 10px 14px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 15px; outline: none;">
+            </div>
+            <div id="teacherPickList" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin: 0 0 20px;"></div>
+            <button class="btn" style="background: #6b7280; color: white;" onclick="app.closeTeacherPickModal()">Cancel</button>
         </div>
     </div>
 
@@ -1224,6 +1238,7 @@
                 document.getElementById('stats').style.display = 'grid';
                 document.getElementById('settings').style.display = 'block';
                 document.getElementById('pickBtn').disabled = false;
+                document.getElementById('teacherPickBtn').disabled = false;
                 document.getElementById('volunteerBtn').disabled = false;
                 document.getElementById('selectedName').textContent = 'Ready to pick!';
                 this.syncScoringUI();
@@ -1494,6 +1509,91 @@
 
             closeVolunteerModal() {
                 document.getElementById('volunteerModal').style.display = 'none';
+            },
+
+            showTeacherPickModal() {
+                if (!this.currentClass) return;
+                document.getElementById('teacherPickSearch').value = '';
+                this.renderTeacherPickList(Array.from(this.presentStudents).sort());
+                document.getElementById('teacherPickModal').style.display = 'flex';
+                document.getElementById('teacherPickSearch').focus();
+            },
+
+            renderTeacherPickList(list) {
+                const students = this.classes[this.currentClass].students;
+                const container = document.getElementById('teacherPickList');
+                container.innerHTML = '';
+
+                if (list.length === 0) {
+                    container.innerHTML = '<p style="color:#9ca3af; grid-column:1/-1; text-align:center; padding: 20px 0;">No students match.</p>';
+                    return;
+                }
+
+                // Sort: present students first (alphabetical within each group)
+                const present = list.filter(n => this.presentStudents.has(n));
+                const absent  = Array.from(this.presentStudents).length > 0
+                    ? list.filter(n => !this.presentStudents.has(n))
+                    : [];
+
+                const renderGroup = (names, label) => {
+                    if (names.length === 0) return;
+                    if (label) {
+                        const hdr = document.createElement('div');
+                        hdr.style.cssText = 'grid-column:1/-1; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#9ca3af; margin-top:4px;';
+                        hdr.textContent = label;
+                        container.appendChild(hdr);
+                    }
+                    names.forEach(name => {
+                        const s = students[name] || { picks: 0, correct: 0, incorrect: 0 };
+                        const isLast = name === this.lastPickedStudent;
+                        const btn = document.createElement('button');
+                        btn.style.cssText = `
+                            display: flex; flex-direction: column; align-items: flex-start;
+                            padding: 10px 14px; border-radius: 8px; border: 2px solid ${isLast ? '#fca5a5' : '#e5e7eb'};
+                            background: ${isLast ? '#fff1f2' : 'white'}; cursor: pointer;
+                            text-align: left; transition: border-color .15s, background .15s; width: 100%;
+                            ${label === 'Absent' ? 'opacity:0.5;' : ''}
+                        `;
+                        btn.innerHTML = `
+                            <span style="font-weight:600; font-size:14px; color:#111827;">${name}${isLast ? ' <span title="Last picked" style="font-size:11px;color:#ef4444;">⬅ last</span>' : ''}</span>
+                            <span style="font-size:11px; color:#9ca3af; margin-top:3px;">Picks: ${s.picks} · ✓${s.correct} · ✗${s.incorrect}</span>
+                        `;
+                        btn.onmouseover = () => { if (!isLast) { btn.style.borderColor = '#0ea5e9'; btn.style.background = '#f0f9ff'; } };
+                        btn.onmouseout  = () => { btn.style.borderColor = isLast ? '#fca5a5' : '#e5e7eb'; btn.style.background = isLast ? '#fff1f2' : 'white'; };
+                        btn.onclick = () => this.selectTeacherPick(name);
+                        container.appendChild(btn);
+                    });
+                };
+
+                renderGroup(present, present.length && absent.length ? 'Present' : null);
+                renderGroup(absent, 'Absent');
+            },
+
+            filterTeacherPickList() {
+                const q = document.getElementById('teacherPickSearch').value.toLowerCase();
+                const all = Object.keys(this.classes[this.currentClass].students).sort();
+                const filtered = q ? all.filter(n => n.toLowerCase().includes(q)) : all;
+                this.renderTeacherPickList(filtered);
+            },
+
+            selectTeacherPick(name) {
+                this.closeTeacherPickModal();
+                this.currentStudent = name;
+                this.lastPickedStudent = name;
+                this.classes[this.currentClass].students[name].picks++;
+                this.save();
+
+                document.getElementById('selectedName').textContent = name;
+                document.getElementById('correctBtn').disabled = false;
+                document.getElementById('incorrectBtn').disabled = false;
+                document.getElementById('skipBtn').disabled = false;
+                this.updateStats();
+
+                this.broadcast({ type: 'studentSelected', name, isVolunteer: false, isTeacherPick: true });
+            },
+
+            closeTeacherPickModal() {
+                document.getElementById('teacherPickModal').style.display = 'none';
             },
 
             selectVolunteer(name) {
@@ -2058,6 +2158,7 @@
 
             // Keyboard shortcuts for slides
             document.addEventListener('keydown', e => {
+                if (e.key === 'Escape') app.closeTeacherPickModal();
                 if (app.mode !== 'split') return;
                 if (e.key === 'ArrowRight' || e.key === 'ArrowDown') app.slides.next();
                 if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') app.slides.prev();
