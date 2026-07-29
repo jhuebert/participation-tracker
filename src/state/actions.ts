@@ -227,6 +227,21 @@ export function resetSkips(): void {
   setSessionField(className, resetSessionSkips(session));
 }
 
+/**
+ * Start a new class period / day for the selected class.
+ * - Marks everyone present
+ * - Clears session skips and last-picked
+ * - Clears any in-flight selection (and student projector)
+ * Does NOT touch lifetime picks/correct/incorrect/volunteers/skips.
+ */
+export function startNewSession(): void {
+  const className = currentClass.value;
+  if (!className || !classes.value[className]) return;
+  const names = studentNames(classes.value, className);
+  setSessionField(className, freshSessionForClass(names));
+  clearSelectionUi();
+}
+
 export function setSkipLimit(limit: number): void {
   skipLimit.value = Math.max(0, Math.floor(limit));
 }

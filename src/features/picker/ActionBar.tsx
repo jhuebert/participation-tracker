@@ -7,10 +7,11 @@ import {
   resetSkips,
   selectVolunteer,
   setSkipLimit,
+  startNewSession,
   teacherPick,
 } from '@/state/actions';
 import { classes, currentClass, currentStudent, sessions, skipLimit } from '@/state/store';
-import { toast } from '@/state/ui';
+import { confirm, toast } from '@/state/ui';
 import { Button } from '@/ui/Button';
 import { StudentPickModal, type StudentPickMode } from '@/features/picker/StudentPickModal';
 import styles from './ActionBar.module.css';
@@ -60,6 +61,18 @@ export function ActionBar({ compact = false }: Props) {
     else if (pickMode === 'teacher') teacherPick(name);
   };
 
+  const onNewSession = async () => {
+    if (!hasClass || !className) return;
+    const ok = await confirm({
+      title: 'Start new session?',
+      body: `Begin a new period for "${className}"? Everyone will be marked present, session skips and last-picked will clear. Lifetime scores stay the same.`,
+      confirmLabel: 'Start new session',
+    });
+    if (!ok) return;
+    startNewSession();
+    toast('New session started', 'success');
+  };
+
   return (
     <div class={`${styles.bar} ${compact ? styles.compact : ''}`}>
       <div class={styles.row}>
@@ -100,6 +113,16 @@ export function ActionBar({ compact = false }: Props) {
         </label>
         <Button variant="secondary" size="sm" disabled={!hasClass} onClick={resetSkips}>
           Reset session skips
+        </Button>
+        <Button
+          variant="secondary"
+          size="sm"
+          disabled={!hasClass}
+          onClick={() => void onNewSession()}
+          aria-label="New session"
+          title="New day / period: everyone present, clear session skips and last-picked. Scores unchanged."
+        >
+          🔄 New session
         </Button>
       </div>
 

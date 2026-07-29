@@ -35,17 +35,28 @@ On **Manage**, click **Edit** on a class to rename the class, rename/remove stud
 
 ## Daily flow (Teacher or Split)
 
-1. Choose the class in the top bar.  
-   Everyone starts **present**; uncheck absences.
-2. Ask a question, then:
+1. Choose the class in the top bar.
+2. **Start of the day / period:** click **🔄 New session** on the Picker.
+   - Marks everyone **present** (then uncheck absences)
+   - Clears **session skips** and **last-picked**
+   - Does **not** reset semester scores (picks, correct, etc.)
+3. Ask a question, then:
    - **🎲 Pick Random** — weighted so frequent participants are less likely (if weights are on)
    - **🍎 Teacher Pick** — search and choose anyone (present listed first)
    - **🙋 Volunteer** — student raises hand; marks a volunteer + pick
-3. After they answer:
+4. After they answer:
    - **✓ Correct** · **✗ Incorrect** · **⏭ Skip**
-4. Skip has a **per-session limit** (default 3). Reset session skips from the picker if needed.
+5. Skip has a **per-session limit** (default 3). Use **Reset session skips** if you only need that, or **New session** for a full fresh period.
 
 Random pick avoids calling the same student twice in a row when more than one student is present.
+
+### New day vs reset stats
+
+| Action | Use when |
+|--------|----------|
+| **🔄 New session** | New class period or next school day — keep grades/history |
+| **Reset session skips** | Only clear skip counters mid-period |
+| **Leaderboard → Reset stats** | Wipe all participation counts for the class (end of term) |
 
 ---
 

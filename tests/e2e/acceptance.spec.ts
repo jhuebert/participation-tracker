@@ -232,6 +232,24 @@ test.describe('Teacher — Picker', () => {
     await selectClass(page, 'Period 1');
     await expect(page.getByText(/2\/3 present|Present today · 2\//)).toBeVisible();
   });
+
+  test('new session restores full attendance and clears session skips', async ({ page }) => {
+    await page.getByRole('button', { name: 'Deselect all', exact: true }).click();
+    await page.locator('[data-student="Alice"] input[type="checkbox"]').check();
+
+    await page.getByRole('button', { name: '🍎 Teacher Pick' }).click();
+    await page
+      .getByRole('dialog', { name: 'Teacher Pick' })
+      .getByRole('button', { name: /Alice/ })
+      .click();
+    await page.getByRole('button', { name: '⏭ Skip' }).click();
+
+    await page.getByRole('button', { name: 'New session' }).click();
+    await page.getByRole('alertdialog').getByRole('button', { name: 'Start new session' }).click();
+    await expect(page.getByText('New session started')).toBeVisible();
+    await expect(page.getByText(/3\/3 present|Present today · 3\//)).toBeVisible();
+    await expect(page.getByText('Ready to pick!')).toBeVisible();
+  });
 });
 
 test.describe('Leaderboard & Manage', () => {
