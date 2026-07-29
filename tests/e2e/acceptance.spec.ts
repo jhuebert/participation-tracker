@@ -169,7 +169,7 @@ test.describe('Teacher — Picker', () => {
 
   test('single present student still picks', async ({ page }) => {
     await page.getByRole('button', { name: 'Deselect all', exact: true }).click();
-    await page.locator('label').filter({ hasText: /^Alice$/ }).locator('input[type="checkbox"]').check();
+    await page.locator('[data-student="Alice"] input[type="checkbox"]').check();
     await page.getByRole('button', { name: '🎲 Pick Random' }).click();
     await expect(page.getByRole('button', { name: '✓ Correct' })).toBeEnabled();
     await expect(page.getByTestId('selected-name')).toHaveText('Alice');
@@ -222,8 +222,8 @@ test.describe('Teacher — Picker', () => {
 
   test('session persists across refresh', async ({ page }) => {
     await page.getByRole('button', { name: 'Deselect all', exact: true }).click();
-    await page.locator('label').filter({ hasText: /^Alice$/ }).locator('input[type="checkbox"]').check();
-    await page.locator('label').filter({ hasText: /^Bob$/ }).locator('input[type="checkbox"]').check();
+    await page.locator('[data-student="Alice"] input[type="checkbox"]').check();
+    await page.locator('[data-student="Bob"] input[type="checkbox"]').check();
 
     await page.reload();
     if (await page.getByLabel('Choose a mode').count()) {

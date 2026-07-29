@@ -54,6 +54,7 @@ export function AttendancePanel({ collapsible = false, sidebar = false }: Props)
                 class={`${styles.row} ${checked ? styles.present : styles.absent} ${
                   isLast ? styles.last : ''
                 }`}
+                data-student={name}
               >
                 <input
                   type="checkbox"
@@ -63,7 +64,7 @@ export function AttendancePanel({ collapsible = false, sidebar = false }: Props)
                   }
                 />
                 <span class={styles.identity}>
-                  <span class={styles.name}>
+                  <span class={styles.name} data-student-name={name}>
                     {name}
                     {isLast && (
                       <span class={styles.lastTag} title="Last picked">
