@@ -864,19 +864,29 @@ Skip limit: 3
   /* Surfaces */
   --color-surface: #ffffff;
   --color-surface-muted: #f4f7fb;
-  --color-border: #e2e8f0;
+  --color-surface-subtle: #fafcfe;
+  --color-border: #cbd5e1;
+  --color-border-strong: #94a3b8;
   --color-text: #1e1e1e;
   --color-text-secondary: #4a5466;
   --color-text-on-primary: #ffffff;
 
   /* Semantic */
-  --color-success: #159947;
+  --color-success: #087f3e;
+  --color-success-hover: #066b34;
   --color-danger: #d92d20;
-  --color-warning: #d97706;
+  --color-danger-hover: #b42318;
+  --color-warning: #b45309;
+  --color-warning-hover: #92400e;
+  --color-volunteer: #08785c;
+  --color-volunteer-hover: #06634c;
+  --color-info: #256f9c;
+  --color-info-hover: #1f5e84;
 
   /* Student / projector shell */
   --color-projector-bg: #1b2e49;
   --color-projector-text: #ffffff;
+  --color-projector-surface: #0f1a2c;
 }
 ```
 

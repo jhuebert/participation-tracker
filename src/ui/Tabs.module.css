@@ -16,6 +16,10 @@
   padding: 8px 14px;
   border-radius: var(--radius-sm);
   min-height: 36px;
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .tab:hover {
@@ -24,11 +28,19 @@
 
 .active {
   background: var(--color-surface);
-  color: var(--color-primary);
+  color: var(--color-primary-hover);
   box-shadow: var(--shadow-sm);
 }
 
 .compact .tab {
   padding: 6px 10px;
   min-height: 32px;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.fullWidth .tab {
+  flex: 1;
 }

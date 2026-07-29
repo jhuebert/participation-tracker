@@ -42,7 +42,7 @@
 .secondary {
   background: var(--color-surface);
   color: var(--color-text);
-  border-color: var(--color-border);
+  border-color: var(--color-border-strong);
 }
 .secondary:hover:not(:disabled) {
   background: var(--color-surface-muted);
@@ -50,7 +50,7 @@
 
 .success {
   background: var(--color-success);
-  color: #fff;
+  color: var(--color-text-on-primary);
 }
 .success:hover:not(:disabled) {
   background: var(--color-success-hover);
@@ -58,7 +58,7 @@
 
 .danger {
   background: var(--color-danger);
-  color: #fff;
+  color: var(--color-text-on-primary);
 }
 .danger:hover:not(:disabled) {
   background: var(--color-danger-hover);
@@ -66,7 +66,7 @@
 
 .warning {
   background: var(--color-warning);
-  color: #fff;
+  color: var(--color-text-on-primary);
 }
 .warning:hover:not(:disabled) {
   background: var(--color-warning-hover);
@@ -74,18 +74,18 @@
 
 .volunteer {
   background: var(--color-volunteer);
-  color: #fff;
+  color: var(--color-text-on-primary);
 }
 .volunteer:hover:not(:disabled) {
-  filter: brightness(0.92);
+  background: var(--color-volunteer-hover);
 }
 
 .info {
-  background: var(--color-primary-soft);
-  color: #fff;
+  background: var(--color-info);
+  color: var(--color-text-on-primary);
 }
 .info:hover:not(:disabled) {
-  filter: brightness(0.95);
+  background: var(--color-info-hover);
 }
 
 .ghost {

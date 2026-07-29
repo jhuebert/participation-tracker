@@ -117,7 +117,7 @@
 }
 
 .last {
-  border-color: #fca5a5;
+  border-color: var(--color-danger-border);
   box-shadow: inset 3px 0 0 var(--color-danger);
 }
 
@@ -146,7 +146,7 @@
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--color-danger);
-  background: #fff1f2;
+  background: var(--color-danger-soft);
   border-radius: var(--radius-full);
   padding: 1px 6px;
 }

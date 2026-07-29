@@ -37,24 +37,38 @@ Non-goals: dark-mode toggle, i18n, logo/mascot requirement, mobile-first layout.
   /* Surfaces */
   --color-surface: #ffffff;
   --color-surface-muted: #f4f7fb;
-  --color-border: #e2e8f0;
+  --color-surface-subtle: #fafcfe;
+  --color-border: #cbd5e1;
+  --color-border-strong: #94a3b8;
   --color-text: #1e1e1e;
   --color-text-secondary: #4a5466;
   --color-text-on-primary: #ffffff;
 
   /* Semantic */
-  --color-success: #159947;
-  --color-success-hover: #0f7a38;
+  --color-success: #087f3e;
+  --color-success-hover: #066b34;
   --color-danger: #d92d20;
   --color-danger-hover: #b42318;
-  --color-warning: #d97706;
-  --color-warning-hover: #b45309;
-  --color-volunteer: #0e8a6a;
+  --color-warning: #b45309;
+  --color-warning-hover: #92400e;
+  --color-volunteer: #08785c;
+  --color-volunteer-hover: #06634c;
+  --color-info: #256f9c;
+  --color-info-hover: #1f5e84;
+
+  /* Semantic soft surfaces */
+  --color-danger-soft: #fff1f2;
+  --color-danger-tag: #ffe4e6;
+  --color-danger-border: #fca5a5;
+  --color-danger-border-strong: #f87171;
+  --color-info-soft: #f0f7fc;
+  --color-volunteer-soft: #ecfdf7;
 
   /* Projector (student mode) */
   --color-projector-bg: #1b2e49;
   --color-projector-text: #ffffff;
   --color-projector-muted: #99beee;
+  --color-projector-surface: #0f1a2c;
 }
 ```
 

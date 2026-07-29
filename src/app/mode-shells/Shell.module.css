@@ -38,7 +38,7 @@
   flex: 1;
   display: flex;
   min-height: 0;
-  height: calc(100vh - 56px);
+  height: calc(100vh - 52px);
   padding: var(--space-sm);
   gap: 0;
 }
@@ -84,6 +84,35 @@
 .resizeHandle:hover,
 .resizeHandle:active {
   background: var(--color-primary-soft);
+}
+
+@media (max-width: 820px) {
+  .main {
+    padding: var(--space-md);
+  }
+
+  .splitLayout {
+    height: auto;
+    min-height: calc(100vh - 52px);
+    flex-direction: column;
+    overflow: auto;
+  }
+
+  .slidesPane {
+    flex: 0 0 min(58vh, 560px) !important;
+    margin: var(--space-xs);
+    min-height: 320px;
+  }
+
+  .trackerPane {
+    margin: var(--space-xs);
+    min-width: 0;
+    overflow: visible;
+  }
+
+  .resizeHandle {
+    display: none;
+  }
 }
 
 .studentShell {

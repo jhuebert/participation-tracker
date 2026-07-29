@@ -25,7 +25,7 @@ export function TopBar({ compact = false }: Props) {
 
       {showTabs && (
         <div class={styles.center}>
-          <Tabs compact={compact} />
+          <Tabs compact={compact} fullWidth />
         </div>
       )}
 

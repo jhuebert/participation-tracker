@@ -6,7 +6,7 @@
   z-index: var(--z-toast);
   padding: 12px 20px;
   border-radius: var(--radius-full);
-  color: #fff;
+  color: var(--color-text-on-primary);
   font-weight: 600;
   box-shadow: var(--shadow-md);
   max-width: min(90vw, 420px);

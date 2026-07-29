@@ -57,3 +57,40 @@
   margin-left: auto;
   flex-wrap: wrap;
 }
+
+@media (max-width: 900px) {
+  .bar {
+    padding-inline: var(--space-md);
+  }
+
+  .center {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+}
+
+@media (max-width: 560px) {
+  .bar {
+    align-items: flex-start;
+    padding-block: var(--space-sm);
+  }
+
+  .left,
+  .right {
+    gap: var(--space-sm);
+  }
+
+  .brand {
+    flex-basis: 100%;
+  }
+
+  .version {
+    display: none;
+  }
+
+  .center {
+    justify-content: stretch;
+  }
+
+}
