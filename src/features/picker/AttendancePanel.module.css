@@ -44,7 +44,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-xs);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs);
   flex: 0 0 auto;
 }
 
@@ -60,6 +60,15 @@
   gap: 2px;
 }
 
+.legend {
+  margin: 0 0 var(--space-sm);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-text-secondary);
+  opacity: 0.85;
+}
+
 .list {
   list-style: none;
   margin: 0;
@@ -72,14 +81,13 @@
   flex: 1 1 auto;
 }
 
-/* Non-sidebar: allow a short multi-column feel if many kids & not in rail */
 .card:not(.sidebar) .list {
-  max-height: 280px;
+  max-height: 320px;
 }
 
 .row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   width: 100%;
   padding: 8px 10px;
@@ -102,19 +110,86 @@
   background: var(--color-primary-muted);
   border-color: var(--color-primary-border);
   color: var(--color-navy);
-  font-weight: 600;
 }
 
 .absent {
   opacity: 0.72;
 }
 
-.name {
+.last {
+  border-color: #fca5a5;
+  box-shadow: inset 3px 0 0 var(--color-danger);
+}
+
+.identity {
   flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.name {
+  font-weight: 700;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lastTag {
+  flex: 0 0 auto;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-danger);
+  background: #fff1f2;
+  border-radius: var(--radius-full);
+  padding: 1px 6px;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+
+.stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  white-space: nowrap;
+}
+
+.statLabel {
+  opacity: 0.75;
+  font-weight: 600;
+}
+
+.correct {
+  color: var(--color-success);
+}
+
+.incorrect {
+  color: var(--color-danger);
+}
+
+.volunteer {
+  color: var(--color-volunteer);
+}
+
+.sessionSkip {
+  margin-left: 1px;
+  color: var(--color-warning);
+  font-weight: 700;
 }
 
 .row input {
@@ -122,4 +197,5 @@
   width: 16px;
   height: 16px;
   flex: 0 0 auto;
+  margin-top: 2px;
 }

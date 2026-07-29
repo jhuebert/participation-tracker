@@ -1,4 +1,5 @@
 import { setEveryonePresent, setPresent } from '@/state/actions';
+import { emptyStudentStats } from '@/domain/defaults';
 import { classes, currentClass, sessions } from '@/state/store';
 import { Button } from '@/ui/Button';
 import styles from './AttendancePanel.module.css';
@@ -14,10 +15,12 @@ export function AttendancePanel({ collapsible = false, sidebar = false }: Props)
   const className = currentClass.value;
   if (!className || !classes.value[className]) return null;
 
-  const students = Object.keys(classes.value[className].students).sort((a, b) =>
-    a.localeCompare(b),
-  );
-  const presentSet = new Set(sessions.value[className]?.present ?? []);
+  const classData = classes.value[className];
+  const session = sessions.value[className];
+  const students = Object.keys(classData.students).sort((a, b) => a.localeCompare(b));
+  const presentSet = new Set(session?.present ?? []);
+  const lastPicked = session?.lastPicked;
+  const sessionSkips = session?.sessionSkips ?? {};
 
   const body = (
     <>
@@ -36,12 +39,22 @@ export function AttendancePanel({ collapsible = false, sidebar = false }: Props)
           </Button>
         </div>
       </div>
-      <ul class={`${styles.list} ${sidebar ? styles.listSidebar : ''}`}>
+      <p class={styles.legend} title="Picks · Correct · Incorrect · Volunteers · Skips (session skips)">
+        P · ✓ · ✗ · 🙋 · ⏭
+      </p>
+      <ul class={styles.list}>
         {students.map((name) => {
           const checked = presentSet.has(name);
+          const stats = classData.students[name] ?? emptyStudentStats();
+          const sSkips = sessionSkips[name] ?? 0;
+          const isLast = lastPicked === name;
           return (
             <li key={name}>
-              <label class={`${styles.row} ${checked ? styles.present : styles.absent}`}>
+              <label
+                class={`${styles.row} ${checked ? styles.present : styles.absent} ${
+                  isLast ? styles.last : ''
+                }`}
+              >
                 <input
                   type="checkbox"
                   checked={checked}
@@ -49,7 +62,48 @@ export function AttendancePanel({ collapsible = false, sidebar = false }: Props)
                     setPresent(name, (e.currentTarget as HTMLInputElement).checked)
                   }
                 />
-                <span class={styles.name}>{name}</span>
+                <span class={styles.identity}>
+                  <span class={styles.name}>
+                    {name}
+                    {isLast && (
+                      <span class={styles.lastTag} title="Last picked">
+                        last
+                      </span>
+                    )}
+                  </span>
+                  <span
+                    class={styles.stats}
+                    title={`Picks ${stats.picks}, Correct ${stats.correct}, Incorrect ${stats.incorrect}, Volunteers ${stats.volunteers}, Skips ${stats.skips}${
+                      sSkips ? `, Session skips ${sSkips}` : ''
+                    }`}
+                  >
+                    <span class={styles.stat}>
+                      <span class={styles.statLabel}>P</span>
+                      {stats.picks}
+                    </span>
+                    <span class={`${styles.stat} ${styles.correct}`}>
+                      <span class={styles.statLabel}>✓</span>
+                      {stats.correct}
+                    </span>
+                    <span class={`${styles.stat} ${styles.incorrect}`}>
+                      <span class={styles.statLabel}>✗</span>
+                      {stats.incorrect}
+                    </span>
+                    <span class={`${styles.stat} ${styles.volunteer}`}>
+                      <span class={styles.statLabel}>🙋</span>
+                      {stats.volunteers}
+                    </span>
+                    <span class={styles.stat}>
+                      <span class={styles.statLabel}>⏭</span>
+                      {stats.skips}
+                      {sSkips > 0 && (
+                        <span class={styles.sessionSkip} title="Session skips">
+                          ({sSkips})
+                        </span>
+                      )}
+                    </span>
+                  </span>
+                </span>
               </label>
             </li>
           );
@@ -69,10 +123,7 @@ export function AttendancePanel({ collapsible = false, sidebar = false }: Props)
 
   const Tag = sidebar ? 'aside' : 'section';
   return (
-    <Tag
-      class={`${styles.card} ${sidebar ? styles.sidebar : ''}`}
-      aria-label="Attendance"
-    >
+    <Tag class={`${styles.card} ${sidebar ? styles.sidebar : ''}`} aria-label="Attendance">
       <h3 class={styles.heading}>Attendance</h3>
       {body}
     </Tag>
