@@ -1,9 +1,25 @@
 .wrap {
   display: grid;
   gap: var(--space-xs);
+  align-items: center;
+}
+
+/* Top bar: label + control on one line */
+.inline {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.large {
+  display: grid;
+  gap: var(--space-sm);
+  width: 100%;
 }
 
 .large .select {
+  width: 100%;
   padding: 12px 14px;
   font-size: var(--font-size-lg);
 }
@@ -12,6 +28,13 @@
   font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.inline .label {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .select {
@@ -20,5 +43,6 @@
   background: var(--color-surface);
   color: var(--color-text);
   padding: 8px 12px;
-  min-width: 200px;
+  min-width: 168px;
+  font-weight: 600;
 }

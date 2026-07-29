@@ -11,20 +11,47 @@ interface Props {
 export function PickerView({ compact = false }: Props) {
   const hasClass = !!currentClass.value;
 
+  if (compact) {
+    return (
+      <div class={`${styles.view} ${styles.compact}`}>
+        {!hasClass && (
+          <p class={styles.hint}>
+            Choose a class in the top bar to take attendance and start picking.
+          </p>
+        )}
+        {hasClass && (
+          <>
+            <AttendancePanel collapsible />
+            <StatsRow collapsible />
+            <SelectionStage compact />
+          </>
+        )}
+        {!hasClass && <SelectionStage compact />}
+      </div>
+    );
+  }
+
+  // Teacher full picker: attendance left rail + stage right
   return (
-    <div class={`${styles.view} ${compact ? styles.compact : ''}`}>
+    <div class={styles.view}>
       {!hasClass && (
-        <p class={styles.hint}>Choose a class in the top bar to take attendance and start picking.</p>
+        <p class={styles.hint}>
+          Choose a class in the top bar to take attendance and start picking.
+        </p>
       )}
-      {hasClass && (
-        <>
-          <AttendancePanel collapsible={compact} />
-          {!compact && <StatsRow />}
-          {compact && <StatsRow collapsible />}
-          <SelectionStage compact={compact} />
-        </>
+      {hasClass ? (
+        <div class={styles.layout}>
+          <div class={styles.rail}>
+            <AttendancePanel sidebar />
+          </div>
+          <div class={styles.mainCol}>
+            <StatsRow />
+            <SelectionStage />
+          </div>
+        </div>
+      ) : (
+        <SelectionStage />
       )}
-      {!hasClass && <SelectionStage compact={compact} />}
     </div>
   );
 }

@@ -9,18 +9,21 @@ const OPTIONS: { value: AppMode; label: string }[] = [
 ];
 
 interface Props {
+  /** Stacked label + large control (welcome screen). Default is inline for the top bar. */
   large?: boolean;
 }
 
 export function ModeSelect({ large = false }: Props) {
   const current = mode.value;
+  const labelText = large ? 'Choose a mode' : 'Mode';
 
   return (
-    <label class={`${styles.wrap} ${large ? styles.large : ''}`}>
-      <span class={styles.label}>{large ? 'Choose a mode' : 'Mode'}</span>
+    <label class={`${styles.wrap} ${large ? styles.large : styles.inline}`}>
+      <span class={styles.label}>{labelText}</span>
       <select
         class={styles.select}
         value={current ?? ''}
+        aria-label={labelText}
         onChange={(e) => {
           const value = (e.currentTarget as HTMLSelectElement).value as AppMode | '';
           if (!value) return;

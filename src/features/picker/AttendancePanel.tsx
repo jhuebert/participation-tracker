@@ -4,10 +4,13 @@ import { Button } from '@/ui/Button';
 import styles from './AttendancePanel.module.css';
 
 interface Props {
+  /** Compact/collapsible for split mode right pane */
   collapsible?: boolean;
+  /** Vertical list in a side rail (teacher picker) */
+  sidebar?: boolean;
 }
 
-export function AttendancePanel({ collapsible = false }: Props) {
+export function AttendancePanel({ collapsible = false, sidebar = false }: Props) {
   const className = currentClass.value;
   if (!className || !classes.value[className]) return null;
 
@@ -20,7 +23,9 @@ export function AttendancePanel({ collapsible = false }: Props) {
     <>
       <div class={styles.toolbar}>
         <span class={styles.count}>
-          Present today · {presentSet.size}/{students.length}
+          {sidebar
+            ? `${presentSet.size}/${students.length} present`
+            : `Present today · ${presentSet.size}/${students.length}`}
         </span>
         <div class={styles.actions}>
           <Button variant="ghost" size="sm" onClick={() => setEveryonePresent(true)}>
@@ -31,23 +36,25 @@ export function AttendancePanel({ collapsible = false }: Props) {
           </Button>
         </div>
       </div>
-      <div class={styles.grid}>
+      <ul class={`${styles.list} ${sidebar ? styles.listSidebar : ''}`}>
         {students.map((name) => {
           const checked = presentSet.has(name);
           return (
-            <label key={name} class={`${styles.chip} ${checked ? styles.present : ''}`}>
-              <input
-                type="checkbox"
-                checked={checked}
-                onChange={(e) =>
-                  setPresent(name, (e.currentTarget as HTMLInputElement).checked)
-                }
-              />
-              <span>{name}</span>
-            </label>
+            <li key={name}>
+              <label class={`${styles.row} ${checked ? styles.present : styles.absent}`}>
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  onChange={(e) =>
+                    setPresent(name, (e.currentTarget as HTMLInputElement).checked)
+                  }
+                />
+                <span class={styles.name}>{name}</span>
+              </label>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </>
   );
 
@@ -60,10 +67,14 @@ export function AttendancePanel({ collapsible = false }: Props) {
     );
   }
 
+  const Tag = sidebar ? 'aside' : 'section';
   return (
-    <section class={styles.card} aria-label="Attendance">
+    <Tag
+      class={`${styles.card} ${sidebar ? styles.sidebar : ''}`}
+      aria-label="Attendance"
+    >
       <h3 class={styles.heading}>Attendance</h3>
       {body}
-    </section>
+    </Tag>
   );
 }

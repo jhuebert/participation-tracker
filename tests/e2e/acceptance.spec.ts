@@ -140,9 +140,9 @@ test.describe('Teacher — Picker', () => {
 
   test('attendance select all / deselect all', async ({ page }) => {
     await page.getByRole('button', { name: 'Deselect all', exact: true }).click();
-    await expect(page.getByText(/Present today · 0\//)).toBeVisible();
+    await expect(page.getByText(/0\/3 present|Present today · 0\//)).toBeVisible();
     await page.getByRole('button', { name: 'Select all', exact: true }).click();
-    await expect(page.getByText(/Present today · 3\//)).toBeVisible();
+    await expect(page.getByText(/3\/3 present|Present today · 3\//)).toBeVisible();
   });
 
   test('pick random avoids back-to-back with 2+ present', async ({ page }) => {
@@ -230,7 +230,7 @@ test.describe('Teacher — Picker', () => {
       await page.getByLabel('Choose a mode').selectOption('teacher');
     }
     await selectClass(page, 'Period 1');
-    await expect(page.getByText(/Present today · 2\//)).toBeVisible();
+    await expect(page.getByText(/2\/3 present|Present today · 2\//)).toBeVisible();
   });
 });
 

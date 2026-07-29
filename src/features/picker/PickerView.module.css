@@ -1,6 +1,8 @@
 .view {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: var(--space-lg);
+  min-height: 0;
 }
 
 .compact {
@@ -14,4 +16,33 @@
   background: var(--color-surface);
   border: 1px dashed var(--color-border);
   border-radius: var(--radius-md);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(200px, 260px) minmax(0, 1fr);
+  gap: var(--space-lg);
+  align-items: start;
+  min-height: 0;
+}
+
+.rail {
+  min-width: 0;
+}
+
+.mainCol {
+  display: grid;
+  gap: var(--space-lg);
+  min-width: 0;
+}
+
+@media (max-width: 820px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .rail :global(aside) {
+    position: static;
+    max-height: 240px;
+  }
 }
