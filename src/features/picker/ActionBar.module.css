@@ -1,0 +1,126 @@
+.bar {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.compact .row {
+  gap: 6px;
+}
+
+.skipRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.skipLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.skipInput {
+  width: 64px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 6px 8px;
+}
+
+.pickGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--space-sm);
+}
+
+.pickBtn {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  padding: 12px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.pickBtn:hover {
+  border-color: var(--color-primary-soft);
+  background: var(--color-primary-muted);
+}
+
+.search {
+  width: 100%;
+  margin-bottom: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+}
+
+.groupLabel {
+  grid-column: 1 / -1;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+  margin-top: var(--space-xs);
+}
+
+.teacherBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  text-align: left;
+  width: 100%;
+}
+
+.teacherBtn:hover {
+  border-color: var(--color-primary-soft);
+  background: var(--color-surface-muted);
+}
+
+.last {
+  border-color: #fca5a5;
+  background: #fff1f2;
+}
+
+.absent {
+  opacity: 0.55;
+}
+
+.teacherName {
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+}
+
+.lastTag {
+  font-size: var(--font-size-xs);
+  color: var(--color-danger);
+  font-weight: 700;
+}
+
+.teacherMeta {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--color-text-secondary);
+  margin: var(--space-lg) 0;
+}

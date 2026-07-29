@@ -1,0 +1,17 @@
+.view {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.compact {
+  gap: var(--space-md);
+}
+
+.hint {
+  margin: 0;
+  padding: var(--space-md);
+  color: var(--color-text-secondary);
+  background: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+}

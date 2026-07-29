@@ -1,0 +1,128 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface-muted);
+}
+
+.main {
+  flex: 1;
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: var(--space-lg);
+}
+
+.panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-md);
+  min-height: 0;
+  overflow: auto;
+}
+
+.panel h2 {
+  margin: 0 0 var(--space-sm);
+  color: var(--color-navy);
+}
+
+.panel p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.splitLayout {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  height: calc(100vh - 56px);
+  padding: var(--space-sm);
+  gap: 0;
+}
+
+.slidesPane {
+  flex: 0 0 60%;
+  margin: var(--space-sm);
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.slidesLoading {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  background: var(--color-navy);
+  color: var(--color-projector-muted);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+}
+
+.trackerPane {
+  flex: 1;
+  margin: var(--space-sm);
+  min-width: 260px;
+  min-height: 0;
+  overflow: auto;
+  background: transparent;
+}
+
+.resizeHandle {
+  flex: 0 0 8px;
+  margin: var(--space-sm) 0;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-border);
+  cursor: col-resize;
+  transition: background var(--transition-fast);
+  align-self: stretch;
+}
+
+.resizeHandle:hover,
+.resizeHandle:active {
+  background: var(--color-primary-soft);
+}
+
+.studentShell {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-xl);
+  background: var(--color-projector-bg);
+  color: var(--color-projector-text);
+  position: relative;
+}
+
+.volunteerBadge {
+  font-size: var(--font-size-xl);
+  color: var(--color-projector-muted);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.studentName {
+  font-size: var(--font-size-display);
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.1;
+  max-width: 14ch;
+  word-break: break-word;
+}
+
+.studentMode {
+  position: absolute;
+  right: var(--space-md);
+  bottom: var(--space-md);
+  opacity: 0.35;
+  transition: opacity var(--transition-fast);
+}
+
+.studentMode:hover,
+.studentMode:focus-within {
+  opacity: 1;
+}

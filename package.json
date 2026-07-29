@@ -1,0 +1,46 @@
+{
+  "name": "participation-tracker",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Interactive classroom participation tracker",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "format": "prettier -w .",
+    "format:check": "prettier -c .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "docker:build": "docker build -t jhuebert/participation-tracker:local ."
+  },
+  "dependencies": {
+    "@preact/signals": "^2.0.4",
+    "jszip": "^3.10.1",
+    "preact": "^10.26.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "@playwright/test": "^1.51.0",
+    "@preact/preset-vite": "^2.10.1",
+    "@testing-library/preact": "^3.2.4",
+    "@types/node": "^22.13.10",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "eslint": "^9.22.0",
+    "eslint-config-prettier": "^10.1.1",
+    "jsdom": "^26.0.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.26.1",
+    "vite": "^6.2.1",
+    "vitest": "^3.0.8"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@9.15.9"
+}

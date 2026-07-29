@@ -1,0 +1,31 @@
+.wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.compact .label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.select {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  padding: 8px 12px;
+  min-width: 160px;
+  max-width: 240px;
+  font-weight: 600;
+}

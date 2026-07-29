@@ -1,5 +1,4 @@
-# Production image — Vite static build served by nginx
-# (legacy single-file app remains at legacy/index.html for reference)
+# Build stage
 FROM node:22-alpine AS builder
 WORKDIR /app
 
@@ -11,6 +10,7 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 RUN pnpm run build
 
+# Production stage — static assets only (same ops model as v1)
 FROM nginx:alpine
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/dist /usr/share/nginx/html

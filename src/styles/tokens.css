@@ -1,0 +1,79 @@
+:root {
+  /* Brand — Cornerstone Christian School */
+  --color-primary: #106cad;
+  --color-primary-hover: #0b578a;
+  --color-primary-soft: #5696c6;
+  --color-primary-muted: #d2e0f9;
+  --color-primary-border: #a8bfe8;
+  --color-navy: #1b2e49;
+  --color-accent-link: #6f98cd;
+
+  /* Surfaces */
+  --color-surface: #ffffff;
+  --color-surface-muted: #f4f7fb;
+  --color-border: #e2e8f0;
+  --color-text: #1e1e1e;
+  --color-text-secondary: #4a5466;
+  --color-text-on-primary: #ffffff;
+
+  /* Semantic */
+  --color-success: #159947;
+  --color-success-hover: #0f7a38;
+  --color-danger: #d92d20;
+  --color-danger-hover: #b42318;
+  --color-warning: #d97706;
+  --color-warning-hover: #b45309;
+  --color-volunteer: #0e8a6a;
+
+  /* Projector */
+  --color-projector-bg: #1b2e49;
+  --color-projector-text: #ffffff;
+  --color-projector-muted: #99beee;
+
+  /* Spacing */
+  --space-2xs: 2px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 999px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 2px rgba(27, 46, 73, 0.06);
+  --shadow-md: 0 4px 12px rgba(27, 46, 73, 0.08);
+  --shadow-lg: 0 12px 32px rgba(27, 46, 73, 0.12);
+
+  /* Type */
+  --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 13px;
+  --font-size-md: 15px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 32px;
+  --font-size-display: clamp(2.5rem, 6vw, 4.5rem);
+
+  /* Motion */
+  --transition-fast: 120ms ease;
+  --transition-normal: 200ms ease;
+
+  /* Z */
+  --z-dropdown: 100;
+  --z-drawer: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+    --transition-normal: 0ms;
+  }
+}

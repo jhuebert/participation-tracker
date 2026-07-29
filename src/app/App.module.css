@@ -1,0 +1,52 @@
+.app {
+  min-height: 100vh;
+}
+
+.welcome {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-lg);
+  background:
+    radial-gradient(circle at top left, var(--color-primary-muted), transparent 45%),
+    var(--color-surface-muted);
+}
+
+.welcomeCard {
+  width: min(440px, 100%);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-xl);
+  display: grid;
+  gap: var(--space-md);
+}
+
+.kicker {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.welcomeCard h1 {
+  margin: 0;
+  color: var(--color-navy);
+  font-size: var(--font-size-2xl);
+  line-height: 1.15;
+}
+
+.lead {
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.version {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+}
