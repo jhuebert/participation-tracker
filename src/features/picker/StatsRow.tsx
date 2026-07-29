@@ -9,8 +9,9 @@ export function StatsRow({ collapsible = false }: Props) {
   const className = currentClass.value;
   if (!className || !classes.value[className]) return null;
 
-  const students = Object.values(classes.value[className].students);
-  const present = sessions.value[className]?.present.length ?? 0;
+  const session = sessions.value[className];
+  const students = Object.values(session?.sessionStats ?? {});
+  const present = session?.present.length ?? 0;
   const picks = students.reduce((s, st) => s + st.picks, 0);
   const correct = students.reduce((s, st) => s + st.correct, 0);
   const volunteers = students.reduce((s, st) => s + st.volunteers, 0);
@@ -29,7 +30,7 @@ export function StatsRow({ collapsible = false }: Props) {
   if (collapsible) {
     return (
       <details class={styles.wrap}>
-        <summary class={styles.summary}>Session stats</summary>
+        <summary class={styles.summary}>Current session stats</summary>
         <div class={styles.body}>{cards}</div>
       </details>
     );

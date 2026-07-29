@@ -42,6 +42,9 @@ export interface WeightSettings {
 
 export interface ClassSessionState {
   present: string[];
+  /** Counts for the currently active class session; lifetime counts live in ClassData. */
+  sessionStats?: Record<string, StudentStats>;
+  /** Skip-limit usage for the currently active class session. */
   sessionSkips: Record<string, number>;
   lastPicked?: string;
 }

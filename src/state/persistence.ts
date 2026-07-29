@@ -1,11 +1,6 @@
 import { DEFAULT_SCORING, DEFAULT_SKIP_LIMIT, DEFAULT_WEIGHTS } from '@/domain/defaults';
-import { normalizeClasses } from '@/domain/class-roster';
-import type {
-  ClassesMap,
-  ScoringSettings,
-  SessionMap,
-  WeightSettings,
-} from '@/domain/types';
+import { normalizeClasses, normalizeStudentStats } from '@/domain/class-roster';
+import type { ClassesMap, ScoringSettings, SessionMap, WeightSettings } from '@/domain/types';
 
 export const STORAGE_KEYS = {
   classes: 'participationData',
@@ -84,12 +79,23 @@ function normalizeSessions(raw: unknown): SessionMap {
     if (!value || typeof value !== 'object') continue;
     const v = value as {
       present?: unknown;
+      sessionStats?: unknown;
       sessionSkips?: unknown;
       lastPicked?: unknown;
     };
     const present = Array.isArray(v.present)
       ? v.present.filter((n): n is string => typeof n === 'string')
       : [];
+    const sessionStats: Record<string, ReturnType<typeof normalizeStudentStats>> = {};
+    if (v.sessionStats && typeof v.sessionStats === 'object') {
+      for (const [k, stats] of Object.entries(v.sessionStats as Record<string, unknown>)) {
+        if (stats && typeof stats === 'object') {
+          sessionStats[k] = normalizeStudentStats(
+            stats as Partial<ReturnType<typeof normalizeStudentStats>>,
+          );
+        }
+      }
+    }
     const sessionSkips: Record<string, number> = {};
     if (v.sessionSkips && typeof v.sessionSkips === 'object') {
       for (const [k, n] of Object.entries(v.sessionSkips as Record<string, unknown>)) {
@@ -99,6 +105,7 @@ function normalizeSessions(raw: unknown): SessionMap {
     }
     result[className] = {
       present,
+      ...(Object.keys(sessionStats).length > 0 ? { sessionStats } : {}),
       sessionSkips,
       lastPicked: typeof v.lastPicked === 'string' ? v.lastPicked : undefined,
     };

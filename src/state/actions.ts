@@ -8,10 +8,7 @@ import {
   resetClassStats,
 } from '@/domain/class-roster';
 import { emptyStudentStats } from '@/domain/defaults';
-import {
-  eligibleForRandomPick,
-  pickWeighted,
-} from '@/domain/weighted-pick';
+import { eligibleForRandomPick, pickWeighted } from '@/domain/weighted-pick';
 import type { BroadcastMessage, ScoringSettings, WeightSettings } from '@/domain/types';
 import {
   classes,
@@ -70,14 +67,27 @@ function updateStudentStats(
   };
 }
 
-function setSessionField(
-  className: string,
-  next: (typeof sessions.value)[string],
-): void {
+function setSessionField(className: string, next: (typeof sessions.value)[string]): void {
   sessions.value = {
     ...sessions.value,
     [className]: next,
   };
+}
+
+function updateSessionStats(
+  className: string,
+  studentName: string,
+  updater: (stats: ReturnType<typeof emptyStudentStats>) => ReturnType<typeof emptyStudentStats>,
+): void {
+  const session = sessions.value[className] ?? emptySession();
+  const prev = session.sessionStats?.[studentName] ?? emptyStudentStats();
+  setSessionField(className, {
+    ...session,
+    sessionStats: {
+      ...session.sessionStats,
+      [studentName]: updater({ ...prev }),
+    },
+  });
 }
 
 function clearSelectionUi(): void {
@@ -92,6 +102,11 @@ function selectStudent(
 ): void {
   const className = requireClass();
   updateStudentStats(className, name, (s) => {
+    s.picks += 1;
+    if (opts.isVolunteer) s.volunteers += 1;
+    return s;
+  });
+  updateSessionStats(className, name, (s) => {
     s.picks += 1;
     if (opts.isVolunteer) s.volunteers += 1;
     return s;
@@ -137,11 +152,7 @@ export function pickRandom(): string | null {
   if (session.present.length === 0) return null;
 
   const students = classes.value[className].students;
-  const eligible = eligibleForRandomPick(
-    session.present,
-    session.lastPicked,
-    students,
-  );
+  const eligible = eligibleForRandomPick(session.present, session.lastPicked, students);
   if (eligible.length === 0) return null;
 
   const name = pickWeighted(eligible, students, weightSettings.value);
@@ -165,6 +176,10 @@ export function markCorrect(): void {
     s.correct += 1;
     return s;
   });
+  updateSessionStats(className, student, (s) => {
+    s.correct += 1;
+    return s;
+  });
   clearSelectionUi();
 }
 
@@ -173,6 +188,10 @@ export function markIncorrect(): void {
   const student = currentStudent.value;
   if (!className || !student) return;
   updateStudentStats(className, student, (s) => {
+    s.incorrect += 1;
+    return s;
+  });
+  updateSessionStats(className, student, (s) => {
     s.incorrect += 1;
     return s;
   });
@@ -196,10 +215,15 @@ export function markSkip(): string | null {
     s.skips += 1;
     return s;
   });
+  updateSessionStats(className, student, (s) => {
+    s.skips += 1;
+    return s;
+  });
+  const updatedSession = sessions.value[className] ?? session;
   setSessionField(className, {
-    ...session,
+    ...updatedSession,
     sessionSkips: {
-      ...session.sessionSkips,
+      ...updatedSession.sessionSkips,
       [student]: used + 1,
     },
   });
@@ -322,13 +346,18 @@ export function renameStudentInClass(className: string, from: string, to: string
   const session = sessions.value[className];
   if (session) {
     const present = session.present.map((n) => (n === from ? to.trim() : n));
+    const sessionStats = { ...session.sessionStats };
+    if (sessionStats[from]) {
+      sessionStats[to.trim()] = sessionStats[from];
+      delete sessionStats[from];
+    }
     const sessionSkips = { ...session.sessionSkips };
     if (sessionSkips[from] != null) {
       sessionSkips[to.trim()] = sessionSkips[from];
       delete sessionSkips[from];
     }
     const lastPicked = session.lastPicked === from ? to.trim() : session.lastPicked;
-    setSessionField(className, { present, sessionSkips, lastPicked });
+    setSessionField(className, { present, sessionStats, sessionSkips, lastPicked });
   }
   if (currentStudent.value === from) currentStudent.value = to.trim();
 }

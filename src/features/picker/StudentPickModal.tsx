@@ -21,10 +21,8 @@ export function StudentPickModal({ open, mode, onClose, onPick }: Props) {
   const classData = className ? classes.value[className] : null;
   const session = className ? sessions.value[className] : null;
   const lastPicked = session?.lastPicked;
-  const presentSet = useMemo(
-    () => new Set(session?.present ?? []),
-    [session?.present],
-  );
+  const sessionStats = session?.sessionStats ?? {};
+  const presentSet = useMemo(() => new Set(session?.present ?? []), [session?.present]);
 
   useEffect(() => {
     if (!open) return;
@@ -84,7 +82,7 @@ export function StudentPickModal({ open, mode, onClose, onPick }: Props) {
               name={name}
               last={name === lastPicked}
               absent={false}
-              stats={classData?.students[name] ?? emptyStudentStats()}
+              stats={sessionStats[name] ?? emptyStudentStats()}
               mode={mode}
               onPick={() => {
                 onPick(name);
@@ -100,7 +98,7 @@ export function StudentPickModal({ open, mode, onClose, onPick }: Props) {
               name={name}
               last={name === lastPicked}
               absent
-              stats={classData?.students[name] ?? emptyStudentStats()}
+              stats={sessionStats[name] ?? emptyStudentStats()}
               mode={mode}
               onPick={() => {
                 onPick(name);
@@ -142,16 +140,15 @@ function StudentPickCard({
         {name}
         {last && <span class={styles.lastTag}> last</span>}
       </span>
-      <span class={styles.cardMeta}>
-        Picks {stats.picks}
+      <span class={styles.cardMeta} title="Current session statistics">
+        Session · Picks {stats.picks}
         <span class={styles.dot}>·</span>
         <span class={styles.correct}>✓{stats.correct}</span>
         <span class={styles.dot}>·</span>
         <span class={styles.incorrect}>✗{stats.incorrect}</span>
         <span class={styles.dot}>·</span>
         <span class={styles.volStat}>🙋{stats.volunteers}</span>
-        <span class={styles.dot}>·</span>
-        ⏭{stats.skips}
+        <span class={styles.dot}>·</span>⏭{stats.skips}
       </span>
     </button>
   );

@@ -20,6 +20,7 @@ export function AttendancePanel({ collapsible = false, sidebar = false }: Props)
   const students = Object.keys(classData.students).sort((a, b) => a.localeCompare(b));
   const presentSet = new Set(session?.present ?? []);
   const lastPicked = session?.lastPicked;
+  const sessionStats = session?.sessionStats ?? {};
   const sessionSkips = session?.sessionSkips ?? {};
 
   const body = (
@@ -39,13 +40,17 @@ export function AttendancePanel({ collapsible = false, sidebar = false }: Props)
           </Button>
         </div>
       </div>
-      <p class={styles.legend} title="Picks · Correct · Incorrect · Volunteers · Skips (session skips)">
-        P · ✓ · ✗ · 🙋 · ⏭
+      <p
+        class={styles.legend}
+        title="Current session: Picks · Correct · Incorrect · Volunteers · Skips. Parentheses show session skip-limit usage."
+      >
+        Current session · P · ✓ · ✗ · 🙋 · ⏭
       </p>
       <ul class={styles.list}>
         {students.map((name) => {
           const checked = presentSet.has(name);
-          const stats = classData.students[name] ?? emptyStudentStats();
+          const stats = sessionStats[name] ?? emptyStudentStats();
+          const lifetimeStats = classData.students[name] ?? emptyStudentStats();
           const sSkips = sessionSkips[name] ?? 0;
           const isLast = lastPicked === name;
           return (
@@ -59,9 +64,7 @@ export function AttendancePanel({ collapsible = false, sidebar = false }: Props)
                 <input
                   type="checkbox"
                   checked={checked}
-                  onChange={(e) =>
-                    setPresent(name, (e.currentTarget as HTMLInputElement).checked)
-                  }
+                  onChange={(e) => setPresent(name, (e.currentTarget as HTMLInputElement).checked)}
                 />
                 <span class={styles.identity}>
                   <span class={styles.name} data-student-name={name}>
@@ -74,8 +77,8 @@ export function AttendancePanel({ collapsible = false, sidebar = false }: Props)
                   </span>
                   <span
                     class={styles.stats}
-                    title={`Picks ${stats.picks}, Correct ${stats.correct}, Incorrect ${stats.incorrect}, Volunteers ${stats.volunteers}, Skips ${stats.skips}${
-                      sSkips ? `, Session skips ${sSkips}` : ''
+                    title={`Session: Picks ${stats.picks}, Correct ${stats.correct}, Incorrect ${stats.incorrect}, Volunteers ${stats.volunteers}, Skips ${stats.skips}. Lifetime: Picks ${lifetimeStats.picks}, Correct ${lifetimeStats.correct}, Incorrect ${lifetimeStats.incorrect}, Volunteers ${lifetimeStats.volunteers}, Skips ${lifetimeStats.skips}${
+                      sSkips ? `, Skip-limit usage ${sSkips}` : ''
                     }`}
                   >
                     <span class={styles.stat}>
