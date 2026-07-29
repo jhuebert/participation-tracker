@@ -24,30 +24,30 @@ pnpm build
 
 Teacher usage guide: [`docs/TEACHER_GUIDE.md`](docs/TEACHER_GUIDE.md)
 
-## Docker (production)
+## Docker (production-like local test)
 
-Production image is a multi-stage Vite build served by nginx:
+Same multi-stage Vite → nginx image ops will run in production:
 
 ```bash
-docker build -f docker/Dockerfile -t jhuebert/participation-tracker:local .
-docker run --rm -p 8080:80 jhuebert/participation-tracker:local
-# open http://localhost:8080
+pnpm docker:build          # jhuebert/participation-tracker:local
+pnpm docker:run            # http://localhost:8080
+pnpm docker:stop
+
+# or rebuild + restart after changes
+pnpm docker:rebuild
+
+# compose (port 80)
+docker compose up --build
 ```
 
-Or pull a published tag:
+See [`docs/LOCAL_DOCKER.md`](docs/LOCAL_DOCKER.md) for details.
+
+Published Hub image (after merge to `main`):
 
 ```bash
 docker pull jhuebert/participation-tracker:latest
 docker run -p 80:80 jhuebert/participation-tracker:latest
 ```
-
-Compose:
-
-```bash
-docker-compose up
-```
-
-> Root `Dockerfile` still backs the **legacy** single-file app under `legacy/` until cutover. Prefer `docker/Dockerfile` for the TypeScript rewrite.
 
 ## Versioning & CI
 

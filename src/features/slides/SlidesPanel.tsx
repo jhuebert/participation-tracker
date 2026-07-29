@@ -68,7 +68,7 @@ export function SlidesPanel() {
   };
 
   return (
-    <section ref={panelRef} class={styles.panel} aria-label="Slides">
+    <section ref={panelRef} class={styles.panel} data-testid="slides-panel" aria-label="Slides panel">
       <div class={styles.toolbar}>
         <Button variant="secondary" size="sm" disabled={!canPrev.value} onClick={prevSlide}>
           ◀ Prev

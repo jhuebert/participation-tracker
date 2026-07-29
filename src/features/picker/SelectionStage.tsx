@@ -20,7 +20,12 @@ export function SelectionStage({ compact = false }: Props) {
     <section class={`${styles.stage} ${compact ? styles.compact : ''}`} aria-live="polite">
       <div class={styles.display}>
         {isVol && student && <div class={styles.volunteer}>🙋 Volunteer</div>}
-        <div class={`${styles.name} ${student ? styles.selected : ''}`}>{headline}</div>
+        <div
+          class={`${styles.name} ${student ? styles.selected : ''}`}
+          data-testid="selected-name"
+        >
+          {headline}
+        </div>
       </div>
       <ActionBar compact={compact} />
     </section>

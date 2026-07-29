@@ -15,7 +15,12 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "docker:build": "docker build -t jhuebert/participation-tracker:local ."
+    "docker:build": "docker build -t jhuebert/participation-tracker:local .",
+    "docker:run": "docker run --rm -d --name participation-tracker-local -p 8080:80 jhuebert/participation-tracker:local",
+    "docker:stop": "docker stop participation-tracker-local || true",
+    "docker:logs": "docker logs -f participation-tracker-local",
+    "docker:rebuild": "pnpm docker:stop && pnpm docker:build && pnpm docker:run",
+    "docker:sh": "docker run --rm -it --entrypoint sh jhuebert/participation-tracker:local"
   },
   "dependencies": {
     "@preact/signals": "^2.0.4",

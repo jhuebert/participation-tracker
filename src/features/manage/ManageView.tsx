@@ -280,6 +280,7 @@ export function ManageView() {
                 <input
                   value={newStudent}
                   placeholder="Student name"
+                  aria-label="New student name"
                   onInput={(e) => setNewStudent((e.currentTarget as HTMLInputElement).value)}
                 />
                 <Button variant="primary" size="sm" onClick={onAddStudent}>

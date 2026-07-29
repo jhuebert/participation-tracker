@@ -34,7 +34,7 @@ export function TopBar({ compact = false }: Props) {
           variant="ghost"
           size="sm"
           onClick={openSettings}
-          aria-label="Open settings"
+          aria-label="Settings"
           title="Settings"
         >
           ⚙️ Settings
